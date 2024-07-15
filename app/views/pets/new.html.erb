@@ -1,0 +1,8 @@
+<h1> Nouveau compagnon </h1>
+<%= simple_form_for @pet do |f| %>
+  <%= f.input :name %>
+  <%= f.input :breed %>
+  <%= f.input :birth_date %>
+  <%= f.input :weight %>
+  <%= f.button :submit %>
+<% end %>
