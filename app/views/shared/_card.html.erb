@@ -1,0 +1,35 @@
+<div class="card-container">
+  <%= image_tag "lumo.png", width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;" %>
+  <h2>Lumo</h2>
+  <div class="pet-infos-container">
+    <p><i class="fa-solid fa-weight-hanging" style="color: #060d0e;"></i> 2,8<!-- Insérer poids récupéré en base de données -->kg</p>
+    <p><i class="fa-solid fa-cake-candles" style="color: #060d0e;"></i> 3<!-- Insérer age récupéré en base de données --> ans</p>
+    <p>
+      <% if @animal_type == "chat" %>
+        <i class="fa-solid fa-cat" style="color: #060d0e;"></i>
+      <% elsif @animal_type == "chien" %>
+        <i class="fa-solid fa-dog" style="color: #060d0e;"></i>
+      <% elsif @animal_type == "oiseau" %>
+        <i class="fa-solid fa-crow" style="color: #060d0e;"></i>
+      <% elsif @animal_type == "cheval" %>
+        <i class="fa-solid fa-horse" style="color: #060d0e;"></i>
+      <% elsif @animal_type == "poisson" %>
+        <i class="fa-solid fa-fish" style="color: #060d0e;"></i>
+      <% elsif @animal_type == "grenouille" %>
+        <i class="fa-solid fa-frog" style="color: #060d0e;"></i>
+      <% elsif @animal_type == "araignée" %>
+        <i class="fa-solid fa-spider" style="color: #060d0e;"></i>
+      <% elsif @animal_type == "serpent" %>
+        <i class="fa-solid fa-worm" style="color: #060d0e;"></i>
+      <% elsif @animal_type == "insecte" %>
+        <i class="fa-solid fa-locust" style="color: #060d0e;"></i>
+      <% elsif @animal_type == "dragon" %>
+        <i class="fa-solid fa-dragon" style="color: #060d0e;"></i>
+      <% else %>
+        <i class="fa-solid fa-shrimp" style="color: #060d0e;"></i>
+      <% end %>
+      <%= @breed %> Chat de goutière
+    </p>
+  </div>
+  <p>Lumo est un petit chat peureux mais câlin qui aime beaucoup les croûtes de fromage.</p>
+</div>

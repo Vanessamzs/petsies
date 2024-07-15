@@ -10,3 +10,16 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/card";
+
+
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+//General style
+
+body{
+  font-family: 'Comfortaa', cursive;
+  background-color: #FFFBF4;
+  color: #060D0E;
+}
