@@ -9,6 +9,8 @@
     <% end %>
     <h2><%= list.pet.name %></h2>
     <div class="pet-infos-container">
+
+    <%= link_to "modifier", root_path, class: "btn btn-secondary"%>
         <p><i class="fa-solid fa-weight-hanging" style="color: #060d0e;"></i> <%= list.pet.weight %>kg</p>
         <p><i class="fa-solid fa-cake-candles" style="color: #060d0e;"></i> <%= list.pet.age %></p>
         <p>
@@ -36,6 +38,7 @@
         <i class="fa-solid fa-shrimp" style="color: #060d0e;"></i>
       <% end %>
       <%= list.pet.breed %>
+      <%= link_to "Supprimer", pet_path(list.pet.id), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     </p>
     </div>
     <p><%= list.pet.description %></p>
