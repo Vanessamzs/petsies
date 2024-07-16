@@ -13,6 +13,10 @@
   </head>
 
   <body>
+
+
+<%= link_to "Log out", destroy_user_session_path, class:'btn green-basic-btn', data: {turbo_method: :delete} %>
+
   <%= render "shared/navbar" %>
   <%= render "shared/flashes" %>
   <%= render "shared/card" %>
