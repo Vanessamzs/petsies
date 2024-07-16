@@ -11,4 +11,19 @@ class Pet < ApplicationRecord
   validates :animal_type, presence: true, inclusion: { in: SPECIES}
 
   has_one_attached :photo
+
+  def age
+    return nil unless birth_date
+
+    now = Time.zone.now.to_date
+    years = now.year - birth_date.year
+    months = now.month - birth_date.month
+
+    if months < 0
+      years -= 1
+      months += 12
+    end
+
+    "#{years} an#{'s' if years != 1} et #{months} mois"
+  end
 end
