@@ -10,7 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "pages/card";
+@import "components/card";
 
 
 //Fonts
@@ -22,4 +22,5 @@ body{
   font-family: 'Comfortaa', cursive;
   background-color: #FFFBF4;
   color: #060D0E;
+  margin-top: 80px;
 }
