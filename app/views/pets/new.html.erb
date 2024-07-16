@@ -1,10 +1,11 @@
 <h1> Nouveau compagnon </h1>
 <%= simple_form_for @pet do |f| %>
   <%= f.input :name, label: "Nom" %>
-  <%= f.input :animal_type, collection: ['Chien', 'Chat', 'Hamster', 'Souris', 'Cheval', 'Serpent', 'Oiseau', 'Poisson', 'Grenouille', 'Araignée'], label: " Type de compagnon " %>
+  <%= f.input :animal_type, collection: Pet::SPECIES, label: " Type de compagnon " %>
   <%= f.input :breed, label: "Race" %>
-  <%= f.input :birth_date, label: "Date de naissance"%>
+  <%= f.input :birth_date, as: :date, start_year: Date.today.year - 20, end_year: Date.today.year, label: "Date de naissance"%>
   <%= f.input :weight, label: "Poids"%>
   <%= f.input :description, label: "Description" %>
+  <%= f.input :photo, as: :file %>
   <%= f.button :submit, "Enregistrer" %>
 <% end %>
