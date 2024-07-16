@@ -7,6 +7,8 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="preload" href="<%= asset_path('application.css') %>" as="style">
+    <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -14,5 +16,20 @@
 <%= render "shared/flashes" %>
 
     <%= yield %>
+    <footer class="phone-footer">
+    <%= link_to user_session_path, class: "icon-link home-icon" do %>
+      <i class="fa-solid fa-house fa-lg"></i>
+    <% end %>
+    <%= link_to root_path, class: "icon-link search-icon" do %>
+      <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <% end %>
+    <%= link_to root_path, class: "icon-link services-icon" do %>
+      <i class="fa-solid fa-syringe fa-lg"></i>
+    <% end %>
+    <%= link_to root_path, class: "icon-link profile-icon" do %>
+      <i class="fa-solid fa-user fa-lg"></i>
+    <% end %>
+  </footer>
   </body>
+
 </html>
