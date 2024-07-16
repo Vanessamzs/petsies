@@ -2,7 +2,11 @@
 
 <div class="card-container">
     <% @pets.each do |list| %>
-    <%= image_tag "lumo.png", width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;" %>
+    <% if list.pet.photo.key == nil %>
+      <%= image_tag "lumo.png", width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;" %>
+    <% else %>
+      <%= cl_image_tag (list.pet.photo.key), width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;" %>
+    <% end %>
     <h2><%= list.pet.name %></h2>
     <div class="pet-infos-container">
         <p><i class="fa-solid fa-weight-hanging" style="color: #060d0e;"></i> <%= list.pet.weight %>kg</p>
