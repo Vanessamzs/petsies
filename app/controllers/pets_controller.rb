@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   def index
-    @pets = Pet.all
+    @pets = UserPet.where(user: current_user)
   end
 
   def show
@@ -14,8 +14,9 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
-    if @pet.save!
-      redirect_to pet_path(@pet)
+    @user_pet = UserPet.new(user: current_user, pet: @pet)
+    if @pet.save! && @user_pet.save!
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
