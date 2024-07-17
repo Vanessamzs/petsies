@@ -45,25 +45,34 @@
     <p><%= list.pet.description %></p>
 
     <!-- Boutons action pour agir sur mes animaux-->
+    <div class="pet-actions-display-controller" data-controller="pet-action-display">
+      <div class="pet-actions">
 
-    <div class="pet-actions">
-      <%= link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #060d0e;"></i>'), pet_path(list.pet.id), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e)?" } %>
-      <%= link_to raw('<i class="fa-solid fa-chevron-down fa-2xl" style="color: #060d0e;"></i>'), pet_path(list.pet.id) %>
-      <%= link_to raw('<i class="fa-solid fa-pencil fa-xl" style="color: #060d0e;"></i>'), root_path %>
-    </div>
+        <%= link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #48ADA9;"></i>'), pet_path(list.pet.id), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e)?" } %>
+        <i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleInformations"></i>
+        <i class="fa-solid fa-pencil fa-xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleModification"></i>
 
-    <!-- divs pour le contenu (activées lors du click sur les boutons correspondants) -->
+        <%# link_to raw('<i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;"></i>'), pet_path(list.pet.id) %>
+        <%# link_to raw('<i class="fa-solid fa-pencil fa-xl" style="color: #48ADA9;"></i>'), root_path %>
+      </div>
 
-    <div class="card-pet-modification">
+      <!-- divs pour le contenu (activées lors du click sur les boutons correspondants) -->
 
-    </div>
+      <div class="card-pet-modification" data-pet-action-display-target="petModificationContainer">
+        <p>Modification de la fiche de <%= list.pet.name %></p>
+      </div>
 
-    <div class="card-pet-informations">
+      <div class="card-pet-informations" data-pet-action-display-target="petInformationsContainer">
+        <p>Informations sur <%= list.pet.name %></p>
+      </div>
 
     </div>
 
   </div>
 <% end %>
 
-
-    <%= link_to "Ajouter un compagnon", new_pet_path, class: "green-basic-btn"%>
+<div class="add-pet-container">
+  <div class="round-button">
+    <%= link_to raw('<i class="fa-solid fa-plus fa-2xl" style="color: #FFFBF4;"></i>'), new_pet_path %>
+  </div>
+</div>
