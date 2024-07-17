@@ -46,6 +46,7 @@
   padding: 15px;
   padding-right: 30px !important;
   padding-left: 30px !important;
+  margin-bottom: 20px;
 }
 
 .pet-actions-display-controller{
@@ -75,6 +76,17 @@
 }
 
 .card-pet-informations-display{
+  display: flex !important;
+  flex-direction: column;
+}
+
+.card-pet-add-event{
+  height: fit-content;
+  width: 100%;
+  display: none;
+}
+
+.card-pet-add-event-display{
   display: flex !important;
   flex-direction: column;
 }

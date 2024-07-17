@@ -53,9 +53,10 @@
     <div class="pet-actions-display-controller" data-controller="pet-action-display">
       <div class="pet-actions">
 
-        <%= link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #48ADA9;"></i>'), pet_path(list.pet.id), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e)?" } %>
-        <i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleInformations"></i>
         <i class="fa-solid fa-pencil fa-xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleModification"></i>
+        <i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleInformations"></i>
+        <%# link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #48ADA9;"></i>'), pet_path(list.pet.id), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e)?" } %>
+        <i class="fa-solid fa-plus fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleAddEvent"></i>
 
         <%# link_to raw('<i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;"></i>'), pet_path(list.pet.id) %>
         <%# link_to raw('<i class="fa-solid fa-pencil fa-xl" style="color: #48ADA9;"></i>'), root_path %>
@@ -69,6 +70,10 @@
 
       <div class="card-pet-informations" data-pet-action-display-target="petInformationsContainer">
         <p>Informations sur <%= list.pet.name %></p>
+      </div>
+
+      <div class="card-pet-add-event" data-pet-action-display-target="petAddEventContainer">
+        <p>Ajout d'évènement pour <%= list.pet.name %></p>
       </div>
 
     </div>
