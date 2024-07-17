@@ -1,11 +1,19 @@
-<h1> Nouveau compagnon </h1>
-<%= simple_form_for @pet do |f| %>
-  <%= f.input :name, label: "Nom" %>
-  <%= f.input :animal_type, collection: Pet::SPECIES, label: " Type de compagnon " %>
-  <%= f.input :breed, label: "Race" %>
-  <%= f.input :birth_date, as: :date, start_year: Date.today.year - 20, end_year: Date.today.year, label: "Date de naissance"%>
-  <%= f.input :weight, label: "Poids"%>
-  <%= f.input :description, label: "Description" %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, "Enregistrer" %>
-<% end %>
+<div class="container">
+  <h1> Nouveau compagnon </h1>
+  <%= simple_form_for @pet do |f| %>
+    <%= f.input :name, label: "Nom", :input_html => { :class => 'form-input' } %>
+    <%= f.input :animal_type, collection: Pet::SPECIES, label: " Type de compagnon ", :input_html => { :class => 'form-input' } %>
+    <%= f.input :breed, label: "Race", :input_html => { :class => 'form-input' } %>
+    <%= f.input :birth_date, as: :date, start_year: Date.today.year - 20, end_year: Date.today.year, label: "Date de naissance", :input_html => { :class => 'form-input' } %>
+    <%= f.input :weight, label: "Poids", :input_html => { :class => 'form-input' } %>
+    <%= f.input :description, label: "Description", :input_html => { :class => 'form-input' } %>
+    <%= f.input :photo, as: :file , :input_html => { :class => 'form-input' } %>
+    <%= f.button :submit, "Enregistrer", class: 'green-basic-btn' %>
+    <%# /!\ "<br/>" à supprimer une fois le form dans la card /!\ %>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  <% end %>
+</div>

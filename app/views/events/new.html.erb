@@ -1,10 +1,2 @@
-<h1> Créer un évenement </h1>
-<%= simple_form_for [@pet, @event] do |f| %>
-<%= f.input :title, label: "Nom de l'évènement" %>
-<%= f.input :treatment_type, label: "Type de traitement" %>
-<%= f.input :start, label: "Date de début" %>
-<%= f.input :end, label: "Date de fin" %>
-<%= f.input :recurrence, label: "Récurrence" %>
-<%= f.input :details, label: "Détails" %>
-<%= f.submit "Enregistrer" %>
-<% end %>
+
+<%= render 'create-event-form' %>

@@ -11,8 +11,10 @@
 .add-pet-container{
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: column;
-  padding-bottom: 25px;
-  padding-right: 25px;
+}
+
+.my-pets-container{
+  margin-bottom: 18%;
 }
