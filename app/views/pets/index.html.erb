@@ -51,7 +51,6 @@
 
           <i class="fa-solid fa-pencil fa-xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleModification"></i>
           <i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleInformations"></i>
-          <%# link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #48ADA9;"></i>'), pet_path(list.pet.id), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e)?" } %>
           <i class="fa-solid fa-plus fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleAddEvent"></i>
 
           <%# link_to raw('<i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;"></i>'), pet_path(list.pet.id) %>
@@ -63,6 +62,7 @@
         <div class="card-pet-modification" data-pet-action-display-target="petModificationContainer">
           <p>Modification de la fiche de <%= list.pet.name %></p>
           <%= link_to "modifier", root_path, class: "btn btn-secondary"%>
+          <%= link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #E6614C; width: 100%; text-align: center; margin-top: 30px;"></i>'), pet_path(list.pet.id), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e)?" } %>
         </div>
 
         <div class="card-pet-informations" data-pet-action-display-target="petInformationsContainer">
