@@ -1,0 +1,15 @@
+.form-input{
+  border-radius: 45px;
+  border-radius: 12px;
+  background: #FFFBF4;
+  box-shadow: inset 3px 3px 12px #dbd8d2,
+              inset -3px -3px 12px #ffffff;
+  border: none;
+}
+
+.form-input:focus{
+  // background: linear-gradient(145deg, #e6e2dc, #ffffff) !important;
+  // box-shadow:  3px 3px 8px #dedad4,
+  //            -3px -3px 8px #ffffff !important;
+  outline: 4px solid #F9DB6D !important;
+}

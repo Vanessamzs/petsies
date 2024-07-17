@@ -14,10 +14,11 @@
 
   <body>
 
-
-<%= link_to "Log out", destroy_user_session_path, class:'btn green-basic-btn', data: {turbo_method: :delete} %>
-
   <%= render "shared/navbar" %>
+
+  <%# /!\ À déplacer dans la page profil /!\ %>
+  <%= link_to "Log out", destroy_user_session_path, class:'btn red-basic-btn', data: {turbo_method: :delete} %>
+
   <%= render "shared/flashes" %>
     <%= yield %>
     <footer class="phone-footer">
