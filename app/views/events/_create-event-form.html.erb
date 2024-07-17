@@ -1,9 +1,11 @@
-<h1> Créer un évenement </h1>
-<%= simple_form_for [@pet, @event] do |f| %>
-<%= f.input :event_type, label: "Type d'évènement" %>
-<%= f.input :treatment_type, label: "Type de traitement" %>
-<%= f.input :date, label: "Date" %>
-<%= f.input :recurrence, label: "Récurrence" %>
-<%= f.input :details, label: "Détails" %>
-<%= f.submit "Enregistrer" %>
-<% end %>
+<div class="container">
+  <h1> Créer un évenement </h1>
+  <%= simple_form_for [@pet, @event] do |f| %>
+  <%= f.input :event_type, label: "Type d'évènement", :input_html => { :class => 'form-input' } %>
+  <%= f.input :treatment_type, label: "Type de traitement", :input_html => { :class => 'form-input' } %>
+  <%= f.input :date, label: "Date", :input_html => { :class => 'form-input' } %>
+  <%= f.input :recurrence, label: "Récurrence", :input_html => { :class => 'form-input' } %>
+  <%= f.input :details, label: "Détails", :input_html => { :class => 'form-input' } %>
+  <%= f.submit "Enregistrer", class: 'green-basic-btn' %>
+  <% end %>
+</div>
