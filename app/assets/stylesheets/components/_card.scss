@@ -37,3 +37,24 @@
 .pet-infos-container p{
   border: none;
 }
+
+.pet-actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+}
+
+.card-image{
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.card-pet-modification{
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}

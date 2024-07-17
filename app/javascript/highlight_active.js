@@ -1,4 +1,6 @@
-document.addEventListener('turbo:load', () => {
+
+const highlightActive = () => {
+  document.addEventListener('turbo:load', () => {
   const path = window.location.pathname;
 
   const iconLinks = document.querySelectorAll('.icon-link');
@@ -11,3 +13,7 @@ document.addEventListener('turbo:load', () => {
     }
   });
 });
+};
+
+
+export {highlightActive};
