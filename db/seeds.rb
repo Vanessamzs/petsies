@@ -14,6 +14,6 @@ User.destroy_all
 @userper3 = UserPet.create(user: @user3, pet: @pet1)
 
 @event1 = Event.create(title: "Rendez-vous", start: '2024-07-20', end: '2024-07-20', pet: @pet1)
-@event1 = Event.create(title: "Traitement", start: '2024-07-21', end: '2024-07-21', pet: @pet2)
+@event2 = Event.create(title: "Traitement", start: '2024-07-21', end: '2024-07-21', pet: @pet2)
 
 puts "Tout va bien"

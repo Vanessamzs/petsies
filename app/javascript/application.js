@@ -3,8 +3,6 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-import {fullcalendar} from "./fullcalendar"
 import {highlightActive} from "./highlight_active"
 
 highlightActive()
-fullcalendar()
