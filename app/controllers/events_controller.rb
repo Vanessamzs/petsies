@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_pet
 
   def index
-    @events = pet.events
+    @events = current_user.events
   end
 
   def show
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   def create
     @event = @pet.events.new(event_params)
     if @event.save
-      redirect_to pet_path(@pet)
+      redirect_to pet_events_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,6 +25,7 @@ class EventsController < ApplicationController
   def destroy
     @event = @pet.events.find(params[:id])
     @event.destroy
+    head :no_content
     redirect_to root_path, notice: 'evènement supprimé avec succès'
   end
 
@@ -37,6 +38,8 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:event_type, :treatment_type, :description, :date)
+    params.require(:event).permit(:event_type, :treatment_type, :description, :start, :end)
   end
 end
+
+
