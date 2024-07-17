@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_16_122940) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_17_101400) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,12 +45,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_16_122940) do
   create_table "events", force: :cascade do |t|
     t.string "treatment_type"
     t.string "event_type"
-    t.boolean "recurrence"
-    t.date "date"
     t.text "details"
     t.bigint "pet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start"
+    t.date "end"
+    t.string "recurrence"
+    t.string "title"
     t.index ["pet_id"], name: "index_events_on_pet_id"
   end
 
