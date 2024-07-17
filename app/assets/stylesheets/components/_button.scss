@@ -13,6 +13,21 @@
   padding: 10px;
 }
 
+.red-basic-btn {
+  position: relative;
+  background-color: #E6614C;
+  color: white;
+  width: 190px;
+  height: 41px;
+  border-radius: 31px;
+  border: none !important;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  text-align: center !important;
+  padding: 10px;
+}
+
 .green-basic-btn::before {
   content: "";
   position: absolute;
@@ -37,6 +52,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #48ADA9;
+  background-color: #E6614C;
   border-radius: 50%;
 }
