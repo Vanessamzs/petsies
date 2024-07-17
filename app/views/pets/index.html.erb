@@ -13,6 +13,11 @@
     <h2><%= list.pet.name %></h2>
     <div class="pet-infos-container">
 
+
+    <%= link_to "modifier", root_path, class: "btn btn-secondary"%>
+    <%= link_to "créer un évenement", new_pet_event_path(list.pet.id), class: "btn btn-secondary"%>
+    <%= link_to "voir la fiche", pet_path(list.pet.id), class: "btn btn-secondary"%>
+
         <p><i class="fa-solid fa-weight-hanging" style="color: #060d0e;"></i> <%= list.pet.weight %>kg</p>
         <p><i class="fa-solid fa-cake-candles" style="color: #060d0e;"></i> <%= list.pet.age %></p>
         <p>

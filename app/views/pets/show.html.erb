@@ -1,2 +1,8 @@
 <h1><%= @pet.name %></h1>
-
+<ul>
+  <% @pet.events.each do |event| %>
+  <li><%= event.event_type %></li>
+   <li>
+      <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
