@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   def create
     @event = @pet.events.new(event_params)
     if @event.save
-      redirect_to pet_events_path
+      redirect_to pet_path(@pet)
     else
       render :new, status: :unprocessable_entity
     end

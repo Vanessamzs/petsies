@@ -1,49 +1,49 @@
 <div class="my-pets-container">
   <h1> Mes compagnons </h1>
 
-  <% @pets.each do |list| %>
+  <% @pets.each do |pet| %>
     <div class="card-container">
 
       <!-- Infos de l'animal -->
 
-      <% if list.pet.photo.key == nil %>
+      <% if pet.photo.attached? %>
         <%= image_tag "lumo.png", width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;" %>
       <% else %>
-        <%= cl_image_tag (list.pet.photo.key), width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;", class: "card-image" %>
+        <%= cl_image_tag (pet.photo.key), width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;", class: "card-image" %>
       <% end %>
-      <h2><%= list.pet.name %></h2>
+      <h2><%= pet.name %></h2>
       <div class="pet-infos-container">
 
-          <p><i class="fa-solid fa-weight-hanging" style="color: #060d0e;"></i> <%= list.pet.weight %>kg</p>
-          <p><i class="fa-solid fa-cake-candles" style="color: #060d0e;"></i> <%= list.pet.age %></p>
+          <p><i class="fa-solid fa-weight-hanging" style="color: #060d0e;"></i> <%= pet.weight %>kg</p>
+          <p><i class="fa-solid fa-cake-candles" style="color: #060d0e;"></i> <%= pet.age %></p>
           <p>
-            <% if list.pet.animal_type == "Chat" %>
+            <% if pet.animal_type == "Chat" %>
               <i class="fa-solid fa-cat" style="color: #060d0e;"></i>
-            <% elsif list.pet.animal_type == "Chien" %>
+            <% elsif pet.animal_type == "Chien" %>
               <i class="fa-solid fa-dog" style="color: #060d0e;"></i>
-            <% elsif list.pet.animal_type == "Oiseau" %>
+            <% elsif pet.animal_type == "Oiseau" %>
               <i class="fa-solid fa-crow" style="color: #060d0e;"></i>
-            <% elsif list.pet.animal_type == "Cheval" %>
+            <% elsif pet.animal_type == "Cheval" %>
               <i class="fa-solid fa-horse" style="color: #060d0e;"></i>
-            <% elsif list.pet.animal_type == "Poisson" %>
+            <% elsif pet.animal_type == "Poisson" %>
               <i class="fa-solid fa-fish" style="color: #060d0e;"></i>
-            <% elsif list.pet.animal_type == "Grenouille" %>
+            <% elsif pet.animal_type == "Grenouille" %>
               <i class="fa-solid fa-frog" style="color: #060d0e;"></i>
-            <% elsif list.pet.animal_type == "Araignée" %>
+            <% elsif pet.animal_type == "Araignée" %>
               <i class="fa-solid fa-spider" style="color: #060d0e;"></i>
-            <% elsif list.pet.animal_type == "Serpent" %>
+            <% elsif pet.animal_type == "Serpent" %>
               <i class="fa-solid fa-worm" style="color: #060d0e;"></i>
-            <% elsif list.pet.animal_type == "Insecte" %>
+            <% elsif pet.animal_type == "Insecte" %>
               <i class="fa-solid fa-locust" style="color: #060d0e;"></i>
-            <% elsif list.pet.animal_type == "Dragon" %>
+            <% elsif pet.animal_type == "Dragon" %>
               <i class="fa-solid fa-dragon" style="color: #060d0e;"></i>
             <% else %>
               <i class="fa-solid fa-shrimp" style="color: #060d0e;"></i>
             <% end %>
-            <%= list.pet.breed %>
+            <%= pet.breed %>
       </p>
       </div>
-      <p><%= list.pet.description %></p>
+      <p><%= pet.description %></p>
 
       <!-- Boutons action pour agir sur mes animaux-->
       <div class="pet-actions-display-controller" data-controller="pet-action-display">
@@ -53,26 +53,26 @@
           <i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleInformations"></i>
           <i class="fa-solid fa-plus fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleAddEvent"></i>
 
-          <%# link_to raw('<i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;"></i>'), pet_path(list.pet.id) %>
+          <%# link_to raw('<i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;"></i>'), pet_path(pet.id) %>
           <%# link_to raw('<i class="fa-solid fa-pencil fa-xl" style="color: #48ADA9;"></i>'), root_path %>
         </div>
 
         <!-- divs pour le contenu (activées lors du click sur les boutons correspondants) -->
 
         <div class="card-pet-modification" data-pet-action-display-target="petModificationContainer">
-          <p>Modification de la fiche de <%= list.pet.name %></p>
+          <p>Modification de la fiche de <%= pet.name %></p>
           <%= link_to "modifier", root_path, class: "btn btn-secondary"%>
-          <%= link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #E6614C; width: 100%; text-align: center; margin-top: 30px;"></i>'), pet_path(list.pet.id), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e)?" } %>
+          <%= link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #E6614C; width: 100%; text-align: center; margin-top: 30px;"></i>'), pet_path(pet.id), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e)?" } %>
         </div>
 
         <div class="card-pet-informations" data-pet-action-display-target="petInformationsContainer">
-          <p>Informations sur <%= list.pet.name %></p>
-          <%= link_to "voir la fiche", pet_path(list.pet.id), class: "btn btn-secondary"%>
+          <p>Informations sur <%= pet.name %></p>
+          <%= link_to "voir la fiche", pet_path(pet.id), class: "btn btn-secondary"%>
         </div>
 
         <div class="card-pet-add-event" data-pet-action-display-target="petAddEventContainer">
-          <p>Ajout d'évènement pour <%= list.pet.name %></p>
-          <%= link_to "créer un évenement", new_pet_event_path(list.pet.id), class: "btn btn-secondary"%>
+          <p>Ajout d'évènement pour <%= pet.name %></p>
+          <%= link_to "créer un évenement", new_pet_event_path(pet.id), class: "btn btn-secondary"%>
         </div>
 
       </div>
