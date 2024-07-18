@@ -5,11 +5,15 @@
 
   <h1> Mes compagnons </h1>
   <div class="grid-container" pe>
-    <% @pets.each do |list| %>
-      <%= link_to pet_path(list.pet) do %>
+    <% @pets.each do |pet| %>
+      <%= link_to pet_path(pet) do %>
         <div class="grid-item">
-          <%= cl_image_tag list.pet.photo.key, class: "mini-avatar", alt: "Petit chat mignon"%>
-          <h3><%= list.pet.name %></h3>
+          <% if pet.photo.key == nil %>
+            <%= image_tag "lumo.png", class: "mini-avatar" %>
+          <% else %>
+            <%= cl_image_tag pet.photo.key, class: "mini-avatar" %>
+          <% end %>
+          <h3><%= pet.name %></h3>
         </div>
       <% end %>
     <% end %>
