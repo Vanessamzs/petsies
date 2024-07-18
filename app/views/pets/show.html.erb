@@ -6,3 +6,7 @@
       <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     </li>
   <% end %>
+
+ <div class="container" data-controller="toggle" class="mt-5">
+  <button data-action="click->toggle#fire" class="btn btn-outline-secondary"> Voir la fiche </button>
+  <div class="text-black d-none" data-toggle-target="togglableElement">

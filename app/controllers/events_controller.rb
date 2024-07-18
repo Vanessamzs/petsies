@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   def create
     @event = @pet.events.new(event_params)
     if @event.save
-      redirect_to pet_events_path
+      redirect_to pet_events_path, notice: 'L\'événement a été créé avec succès.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -40,5 +40,3 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :treatment_type, :description, :start, :end)
   end
 end
-
-

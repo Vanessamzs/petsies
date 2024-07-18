@@ -1,0 +1,8 @@
+    <div class="container">
+  <%= simple_form_for @pet do |f| %>
+    <%= f.input :weight, label: "Poids", :input_html => { :class => 'form-input' } %>
+    <%= f.input :description, label: "Description", :input_html => { :class => 'form-input' } %>
+    <%= f.input :photo, as: :file , :input_html => { :class => 'form-input' } %>
+    <%= f.button :submit, "Enregistrer", class: 'green-basic-btn' %>
+  <% end %>
+</div>

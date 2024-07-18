@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   def index
     @pets = UserPet.where(user: current_user)
+    @pet = Pet.new
   end
 
   def show
@@ -22,19 +23,26 @@ class PetsController < ApplicationController
     end
   end
 
-  def update
+  def edit
     @pet = Pet.find(params[:id])
-    @pet.update(params[:pet])
+  end
+
+  def update
+    if @pet.update(pet_params[:pet])
+      redirect_to @pet, notice: 'Le compagnon a été mis à jour avec succès.'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
-      redirect_to root_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private
-  
+
   def pet_params
     params.require(:pet).permit(:name, :breed, :animal_type, :birth_date, :weight, :description, :photo)
   end
