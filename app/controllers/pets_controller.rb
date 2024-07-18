@@ -5,7 +5,7 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
-    @user = current_user
+    @upcoming_events = @pet.events.where("start <= ?", Date.today + 3 ).order(start: :asc)
     @events = @pet.events
   end
 

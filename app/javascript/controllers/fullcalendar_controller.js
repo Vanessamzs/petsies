@@ -1,8 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import listPlugin from '@fullcalendar/list';
 // import timeGridPlugin from '@fullcalendar/timegrid';
-// import interactionPlugin from '@fullcalendar/interaction';
 // import Rails from '@rails/ujs';
 
 export default class extends Controller {
@@ -15,9 +15,22 @@ export default class extends Controller {
 
     if (this.element) {
       let calendar = new Calendar(this.element, {
-        plugins: [dayGridPlugin],
-        initalView: "dayGridMonth",
-        events: events
+        firstDay: 1,
+        locale: 'fr',
+        height: 500,
+        plugins: [dayGridPlugin, listPlugin],
+        events: events,
+        headerToolbar: {
+          center: 'dayGridMonth,listWeek'
+        },
+        views: {
+          listWeek: {
+            buttonText: 'Semaine'
+          },
+          dayGridMonth: {
+            buttonText: 'Mois'
+          }
+        }
       });
       calendar.render();
     }

@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   def destroy
     @event = @pet.events.find(params[:id])
     @event.destroy
-    redirect_to pet_event_path(@pet), notice: 'evènement supprimé avec succès'
+    redirect_to pet_path(@pet), notice: 'evènement supprimé avec succès'
   end
 
   private
