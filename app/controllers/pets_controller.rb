@@ -1,11 +1,12 @@
 class PetsController < ApplicationController
   def index
-    @pets = UserPet.where(user: current_user)
+    @pets = current_user.pets
   end
 
   def show
     @pet = Pet.find(params[:id])
-    @user = current_user
+    @upcoming_events = @pet.events.where("start <= ?", Date.today + 3 ).order(start: :asc)
+    @events = @pet.events
   end
 
   def new
@@ -22,19 +23,27 @@ class PetsController < ApplicationController
     end
   end
 
+  def edit
+    @pet = Pet.find(params[:id])
+  end
+
   def update
     @pet = Pet.find(params[:id])
-    @pet.update(params[:pet])
+    if @pet.update(pet_params)
+      redirect_to @pet, notice: 'Le compagnon a été mis à jour avec succès.'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
-      redirect_to root_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private
-  
+
   def pet_params
     params.require(:pet).permit(:name, :breed, :animal_type, :birth_date, :weight, :description, :photo)
   end
