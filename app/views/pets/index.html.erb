@@ -50,7 +50,9 @@
         <div class="pet-actions">
 
           <i class="fa-solid fa-pencil fa-xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleModification"></i>
+
           <i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleInformations"></i>
+
           <i class="fa-solid fa-plus fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleAddEvent"></i>
 
           <%# link_to raw('<i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;"></i>'), pet_path(pet.id) %>
@@ -58,8 +60,9 @@
         </div>
 
         <!-- divs pour le contenu (activées lors du click sur les boutons correspondants) -->
+        <div class="container" data-controller="toggle" class="mt-5">
+        <div class="card-pet-modification" data-pet-action-display-target="petModificationContainer"
 
-        <div class="card-pet-modification" data-pet-action-display-target="petModificationContainer">
           <p>Modification de la fiche de <%= pet.name %></p>
           <%= link_to "modifier", root_path, class: "btn btn-secondary"%>
           <%= link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #E6614C; width: 100%; text-align: center; margin-top: 30px;"></i>'), pet_path(pet.id), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e)?" } %>
@@ -83,6 +86,8 @@
   <div class="add-pet-container">
     <div class="round-button">
       <%= link_to raw('<i class="fa-solid fa-plus fa-2xl" style="color: #FFFBF4;"></i>'), new_pet_path %>
+
     </div>
   </div>
+</div>
 </div>

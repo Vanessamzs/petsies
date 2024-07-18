@@ -2,6 +2,11 @@
 
 <ul>
   <% @pet.events.each do |event| %>
+
+  <li><%= event.event_type %></li>
+  <%= link_to "Supprimer", pet_event_path(@pet, @event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <% end %>
+  
   <li><%= event.title %> <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></li>
   <% end %>
 </ul>
@@ -9,3 +14,12 @@
 <div data-controller="fullcalendar" 
     data-fullcalendar-event-value='<%= @events.to_json %>'>
 </div>
+
+ <div class="container" data-controller="toggle" class="mt-5">
+  <button data-action="click->toggle#fire" class="btn btn-outline-secondary"> Modifier </button>
+  <div class="text-black d-none" data-toggle-target="togglableElement">
+  <%= render 'edit', pet: @pet, event: @event %>
+</div>
+</div>
+
+

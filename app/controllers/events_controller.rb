@@ -40,5 +40,3 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :treatment_type, :description, :start, :end)
   end
 end
-
-
