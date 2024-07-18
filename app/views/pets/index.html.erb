@@ -72,7 +72,7 @@
 
         <div class="card-pet-informations" data-pet-action-display-target="petInformationsContainer">
           <p>Informations sur <%= list.pet.name %></p>
-               </div>
+              </div>
               </div>
               </div>
 
@@ -93,8 +93,7 @@
   <div class="add-pet-container">
     <div class="round-button">
       <%= link_to raw('<i class="fa-solid fa-plus fa-2xl" style="color: #FFFBF4;"></i>'), new_pet_path %>
-      <button data-action="click->toggle#fire" class="btn btn-outline-secondary"> Ajouter un évèvenement </button>
-            <div class="text-black d-none" data-toggle-target="togglableElement">
+      <%= link_to "Mon compagnon", pet_path(@pet)%>
     </div>
   </div>
 </div>
