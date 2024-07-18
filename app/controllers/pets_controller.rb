@@ -1,12 +1,12 @@
 class PetsController < ApplicationController
   def index
-    @pets = UserPet.where(user: current_user)
-    @pet = Pet.new
+    @pets = current_user.pets
   end
 
   def show
     @pet = Pet.find(params[:id])
     @user = current_user
+    @events = @pet.events
   end
 
   def new
