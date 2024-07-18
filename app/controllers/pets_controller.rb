@@ -28,7 +28,8 @@ class PetsController < ApplicationController
   end
 
   def update
-    if @pet.update(pet_params[:pet])
+    @pet = Pet.find(params[:id])
+    if @pet.update(pet_params)
       redirect_to @pet, notice: 'Le compagnon a été mis à jour avec succès.'
     else
       render :new, status: :unprocessable_entity

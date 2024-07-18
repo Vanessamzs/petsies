@@ -72,6 +72,7 @@
 
         <div class="card-pet-informations" data-pet-action-display-target="petInformationsContainer">
           <p>Informations sur <%= list.pet.name %></p>
+            <%= link_to "voir la fiche", pet_path(list.pet.id), class: "btn btn-secondary"%>
               </div>
               </div>
               </div>
@@ -93,7 +94,7 @@
   <div class="add-pet-container">
     <div class="round-button">
       <%= link_to raw('<i class="fa-solid fa-plus fa-2xl" style="color: #FFFBF4;"></i>'), new_pet_path %>
-      <%= link_to "Mon compagnon", pet_path(@pet)%>
+
     </div>
   </div>
 </div>
