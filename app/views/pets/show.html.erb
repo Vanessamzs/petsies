@@ -1,8 +1,11 @@
 <h1><%= @pet.name %></h1>
+
 <ul>
   <% @pet.events.each do |event| %>
-  <li><%= event.event_type %></li>
-   <li>
-      <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-    </li>
+  <li><%= event.title %> <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></li>
   <% end %>
+</ul>
+<%= link_to "Ajouter évènement", new_pet_event_path(@pet), class: "btn btn-secondary" %>
+<div data-controller="fullcalendar" 
+    data-fullcalendar-event-value='<%= @events.to_json %>'>
+</div>
