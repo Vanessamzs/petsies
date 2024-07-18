@@ -12,10 +12,10 @@ export default class extends Controller {
 
     if (this.toggleButtonTarget.innerHTML.trim() === bellIconHTML.trim()) {
       this.toggleButtonTarget.innerHTML = closeIconHTML;
-      this.notificationsDisplayTarget.classList.toggle('show');
+      this.notificationsDisplayTarget.classList.toggle('show-notifications');
     } else if (this.toggleButtonTarget.innerHTML.trim() === closeIconHTML.trim()) {
       this.toggleButtonTarget.innerHTML = bellIconHTML;
-      this.notificationsDisplayTarget.classList.toggle('show');
+      this.notificationsDisplayTarget.classList.toggle('show-notifications');
     }
   }
 }
