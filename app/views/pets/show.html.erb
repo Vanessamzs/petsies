@@ -1,4 +1,7 @@
 <div class="container">
+
+  <%= render "shared/card" %>
+  
   <ul>
     <% @upcoming_events.each do |event| %>
       <% if Date.today == event.start %>
@@ -22,10 +25,6 @@
       <% end %>
     <% end %>
   </ul>
-
-  <h1><%= @pet.name %></h1>
-
-  <%= render "shared/card" %>
 
   <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Modifier</button>
 
