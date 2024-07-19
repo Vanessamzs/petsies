@@ -2,8 +2,11 @@
 
     <!-- Infos de l'animal -->
 
-
-      <%= cl_image_tag (@pet.photo.key), width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;", class: "card-image" %>
+    <% if pet.photo.key == nil %>
+      <%= image_tag "lumo.png", width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;" %>
+    <% else %>
+      <%= cl_image_tag pet.photo.key, width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;", class: "card-image" %>
+    <% end %>
 
     <h2><%= @pet.name %></h2>
     <div class="pet-infos-container">
