@@ -1,8 +1,87 @@
 .fc-col-header-cell-cushion {
     text-decoration: none;
-    color: black;
+    color: #060D0E;
 }
 
 .fc-daygrid-day-number {
     text-decoration: none;
+    color: #060D0E;
+}
+
+.fc-dayGridMonth-button{
+  border-radius: 30px 0px 0px 30px !important;
+  background-color: #36827F !important;
+  border: none !important;
+}
+
+.fc-dayGridMonth-button:focus{
+  background-color: #48ADA9 !important;
+  box-shadow: none !important;
+}
+
+.fc-today-button{
+  border-radius: 0px 30px 30px 0px !important;
+  background-color: #36827F !important;
+  border: none !important;
+}
+
+.fc-today-button:focus{
+  background-color: #48ADA9 !important;
+  box-shadow: none !important;
+}
+
+.fc-listWeek-button{
+  background-color: #36827F !important;
+  border: none !important;
+}
+
+.fc-listWeek-button:focus{
+  background-color: #48ADA9 !important;
+  box-shadow: none !important;
+}
+
+.fc-header-toolbar{
+  display: flex;
+  flex-direction: column !important;
+}
+
+.fc-button-group{
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100% !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  top: 9px !important;
+}
+
+.fc-toolbar-chunk{
+  width: 100% !important;
+}
+
+.fc-next-button{
+  display: flex !important;
+  width: 100% !important;
+  justify-content: flex-end;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.fc-prev-button{
+  display: flex !important;
+  width: 100% !important;
+  justify-content: flex-start;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.fc-icon{
+  color: #36827F;
+}
+
+.fc-toolbar-chunk{
+  display: flex !important;
+  justify-content: center !important;
+  margin-bottom: 25px;
 }
