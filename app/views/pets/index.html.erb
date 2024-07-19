@@ -9,4 +9,15 @@
     </div>
   </div>
 </div>
-</div>
+
+<ul>
+  <% @upcoming_events.each do |event| %>
+    <% if Date.today == event.start %>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Attention, n'oubliez pas votre évènement ce jour pour <strong><%= event.pet.name %></strong> : <%= event.title %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </button>
+      </div>
+    <% end %>
+  <% end %>
+</ul>
