@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   def index
     @pets = current_user.pets
+    @upcoming_events = current_user.events.where("start <= ?", Date.today + 3 )
   end
 
   def show
