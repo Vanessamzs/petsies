@@ -11,7 +11,7 @@
     <i class="fa-solid fa-syringe fa-lg"></i>
     <span class="indicator"></span>
   <% end %>
-  <div class="icon-link profile-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFooterProfile" aria-controls="offcanvasBottom">
+  <div class="icon-link profile-icon" data-highlight-footer-target="profile" data-action="click->highlight-footer#highlightProfileLink" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFooterProfile" aria-controls="offcanvasBottom">
     <i class="fa-solid fa-user fa-lg"></i>
     <span class="indicator"></span>
   </div>
@@ -19,7 +19,7 @@
   <div class="offcanvas offcanvas-bottom footer-offcanvas-style" tabindex="-1" id="offcanvasFooterProfile" aria-labelledby="offcanvasBottomLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasBottomLabel">Mon profil</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" data-action="click->highlight-footer#highlightLink"></button>
   </div>
   <div class="offcanvas-body small">
     <div class="offcanvas-content-style">
