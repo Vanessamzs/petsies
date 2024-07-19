@@ -1,8 +1,24 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<H2>en cours de travaux</H2>
-<div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+<div class="full-page">
+  <div class="home-container">
+    <div class="logo-container">
+      <%= image_tag "logo-white.png", class: "home-logo" %>
+    </div>
+      <div class="home-text-content">
+        <H2>Petsies</H2>
+        <p>Nos compagnons de vie méritent
+          <br/>
+        notre attention</p>
+      </div>
+      <div class="btn-home">
+        <% if user_signed_in? %>
+          <%= link_to "Voir ma famille !", pets_path, class: "home-red-basic-btn"  %>
+        <% else  %>
+        <%= link_to "Connecte-toi !", user_session_path, class: "home-red-basic-btn"  %>
+         <%= link_to "Inscris-toi !", new_user_registration_path, class: "home-red-basic-btn" %>
+         <% end %>
+      </div>
+    </div>
+    <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
 	<div class="wheel"></div>
 	<div class="hamster">
 		<div class="hamster__body">
@@ -20,8 +36,4 @@
 	</div>
 	<div class="spoke"></div>
 </div>
-<br>
-<br>
-
-<button class="green-basic-btn">Nouveau compagnon</button>
-<br><br><br>
+</div>

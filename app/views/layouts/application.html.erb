@@ -13,12 +13,23 @@
     <%= favicon_link_tag asset_path('fav.ico') %>
   </head>
 
-  <body>
+  <body class="body-container <%= 'full-page' if controller_name == 'pages' && action_name == 'home' %>">
 
-  <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
+  <%= render "shared/flashes" %>
+  <%# <%= render "shared/navbar" %>
+
+  <%# /!\ À déplacer dans la page profil /!\ %>
+  <% unless controller_name == "pages" %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
     <%= yield %>
-    <%= render "shared/footer" %>
+
+    <% unless controller_name == "pages" %>
+      <%= render 'shared/footer' %>
+    <% end %>
+
   </body>
 
+    <%# <%= render "shared/footer" %>
 </html>

@@ -18,7 +18,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @user_pet = UserPet.new(user: current_user, pet: @pet)
     if @pet.save! && @user_pet.save!
-      redirect_to root_path
+      redirect_to pets_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -40,7 +40,7 @@ class PetsController < ApplicationController
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to pets_path, status: :see_other
   end
 
   private
