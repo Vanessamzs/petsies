@@ -11,8 +11,20 @@
     <i class="fa-solid fa-calendar fa-lg"></i>
     <span class="indicator"></span>
   <% end %>
-  <%= link_to root_path, class: "icon-link profile-icon" do %>
+  <div class="icon-link profile-icon" data-highlight-footer-target="profile" data-action="click->highlight-footer#highlightProfileLink" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFooterProfile" aria-controls="offcanvasBottom">
     <i class="fa-solid fa-user fa-lg"></i>
     <span class="indicator"></span>
-  <% end %>
+  </div>
+
+  <div class="offcanvas offcanvas-bottom footer-offcanvas-style" tabindex="-1" id="offcanvasFooterProfile" aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Mon profil</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" data-action="click->highlight-footer#highlightLink"></button>
+  </div>
+  <div class="offcanvas-body small">
+    <div class="offcanvas-content-style">
+      <%= link_to "Log out", destroy_user_session_path, class:'btn red-basic-btn', data: {turbo_method: :delete} %>
+    </div>
+  </div>
+</div>
 </footer>
