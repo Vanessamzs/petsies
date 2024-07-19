@@ -22,7 +22,7 @@
       <% end %>
     <% end %>
   </ul>
-  
+
   <h1><%= @pet.name %></h1>
 
   <%= render "shared/card" %>
@@ -48,7 +48,7 @@
 
   <% @events.each do |event| %>
     <ul>
-      <%= event.title %>, <%= event.start %> <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <%= link_to event.title, pet_event_path(@pet, event) %>, <%= event.start %> <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     </ul>
   <% end %>
 </div>
