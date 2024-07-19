@@ -1,5 +1,4 @@
 .alert {
-  position: fixed;
   bottom: 16px;
   right: 0px;
   z-index: 1000;
@@ -13,5 +12,10 @@
 }
 
 .alert-warning{
+  background-color: #E6614C !important;
+}
+
+.alert-warning a{
+  color: #5c320e;
   background-color: #E6614C !important;
 }

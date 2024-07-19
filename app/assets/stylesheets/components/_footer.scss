@@ -40,3 +40,18 @@
     }
   }
 }
+
+.footer-offcanvas-style{
+  background-color: #36827F;
+  color:#FFFBF4;
+  border: none;
+  height: fit-content !important;
+}
+
+.offcanvas-content-style{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 65px;
+}
