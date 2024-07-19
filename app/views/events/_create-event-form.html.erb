@@ -1,6 +1,6 @@
 <div class="container">
   <h1> Créer un évenement </h1>
-  <%= simple_form_for [@pet, @event] do |f| %>
+  <%= simple_form_for [@pet, Event.new] do |f| %>
   <%= f.input :title, placeholder: "Type d'évènement", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-font-awesome fa-lg" style="color: #48ADA9;"></i>').html_safe %>
   <%= f.input :treatment_type, placeholder: "Type de traitement", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-syringe fa-lg" style="color: #48ADA9;"></i>').html_safe %>
   <%= f.input :start, label: "Début", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-circle-play fa-lg" style="color: #48ADA9;"></i>').html_safe %>
