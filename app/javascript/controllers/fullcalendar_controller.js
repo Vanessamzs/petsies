@@ -21,7 +21,8 @@ export default class extends Controller {
         plugins: [dayGridPlugin, listPlugin],
         events: events,
         headerToolbar: {
-          center: 'dayGridMonth,listWeek'
+          center: 'dayGridMonth,listWeek,today',
+          end: 'prev,next'
         },
         views: {
           listWeek: {
@@ -29,10 +30,13 @@ export default class extends Controller {
           },
           dayGridMonth: {
             buttonText: 'Mois'
-          }
-        }
+          },
+        },
+        eventColor: '#48ADA9',
       });
       calendar.render();
-    }
+    };
+    const today = document.querySelector('.fc-today-button');
+    today.innerHTML = 'Aujourd\'hui';
   }
 }
