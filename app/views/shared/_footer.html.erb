@@ -3,14 +3,31 @@
     <i class="fa-solid fa-house fa-lg"></i>
     <span class="indicator"></span>
   <% end %>
-  <%= link_to root_path, class: "icon-link search-icon" do %>
+
+    <div class="icon-link profile-icon" data-highlight-footer-target="search" data-action="click->highlight-footer#highlightSearchLink" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFooterSearch" aria-controls="offcanvasBottom">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
     <span class="indicator"></span>
-  <% end %>
+  </div>
+
+  <div class="offcanvas offcanvas-bottom footer-offcanvas-style" tabindex="-1" id="offcanvasFooterSearch" aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasBottomLabel">Rechercher</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" data-action="click->highlight-footer#highlightLink"></button>
+    </div>
+    <div class="offcanvas-body small">
+      <div class="offcanvas-content-style">
+        <!-- /!\ FAKE - V - A RETIRER UNE FOIS L'INPUT CRÉÉ /!\ -->
+        <div class="search" style="width: 80%; height: 2.2em; background-color: #FFFFFF; border-radius: 30px; display: flex; justify-content: flex-start; align-items: center; padding-left: 35px; padding: 8px; color: #000000;"><i class="fa-solid fa-magnifying-glass fa-lg"></i></div>
+        <!-- /!\ FAKE - ^ - A RETIRER UNE FOIS L'INPUT CRÉÉ /!\ -->
+      </div>
+    </div>
+  </div>
+
   <%= link_to calendar_path, class: "icon-link services-icon" do %>
     <i class="fa-solid fa-calendar fa-lg"></i>
     <span class="indicator"></span>
   <% end %>
+
   <div class="icon-link profile-icon" data-highlight-footer-target="profile" data-action="click->highlight-footer#highlightProfileLink" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFooterProfile" aria-controls="offcanvasBottom">
     <i class="fa-solid fa-user fa-lg"></i>
     <span class="indicator"></span>
