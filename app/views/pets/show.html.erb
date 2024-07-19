@@ -1,6 +1,8 @@
 <div class="container">
   <h1><%= @pet.name %></h1>
 
+  <%= render "shared/card" %>
+
   <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Modifier</button>
 
   <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
@@ -36,12 +38,12 @@
       <% end %>
     <% end %>
   </ul>
-  
-  <div data-controller="fullcalendar" 
+
+  <div data-controller="fullcalendar"
       data-fullcalendar-event-value='<%= @events.to_json %>'>
   </div>
-  
-  <%= link_to "Ajouter évènement", new_pet_event_path(@pet), class: "btn btn-secondary" %>
+
+  <%= link_to "Ajouter évènement", new_pet_event_path(@pet), class: "btn btn-secondary", style:"height 150px" %>
 
   <% @events.each do |event| %>
     <ul>
@@ -49,5 +51,3 @@
     </ul>
   <% end %>
 </div>
-
-
