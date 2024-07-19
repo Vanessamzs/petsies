@@ -7,6 +7,13 @@
 @import "button";
 @import "footer";
 @import "mini_card";
+@import "home";
+
+
+.body-container{
+  margin-bottom: 60px;
+  padding-bottom: 24px;
+}
 
 .add-pet-container{
   display: flex;
@@ -18,4 +25,3 @@
 .my-pets-container{
   margin-bottom: 18%;
 }
-

@@ -34,7 +34,7 @@ class EventsController < ApplicationController
   def set_pet
     @pet = Pet.find(params[:pet_id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_path, alert: "Pet not found."
+    redirect_to pets_path, alert: "Pet not found."
   end
 
   def event_params

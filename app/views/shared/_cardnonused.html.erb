@@ -59,14 +59,14 @@
           <i class="fa-solid fa-plus fa-2xl" style="color: #48ADA9;" data-action="click->pet-action-display#toggleAddEvent"></i>
 
           <%# link_to raw('<i class="fa-solid fa-chevron-down fa-2xl" style="color: #48ADA9;"></i>'), pet_path(list.pet.id) %>
-          <%# link_to raw('<i class="fa-solid fa-pencil fa-xl" style="color: #48ADA9;"></i>'), root_path %>
+          <%# link_to raw('<i class="fa-solid fa-pencil fa-xl" style="color: #48ADA9;"></i>'), pets_path %>
         </div>
 
         <!-- divs pour le contenu (activées lors du click sur les boutons correspondants) -->
 
         <div class="card-pet-modification" data-pet-action-display-target="petModificationContainer">
           <p>Modification de la fiche de <%= list.pet.name %></p>
-          <%= link_to "modifier", root_path, class: "btn btn-secondary"%>
+          <%= link_to "modifier", pets_path, class: "btn btn-secondary"%>
         </div>
 
         <div class="card-pet-informations" data-pet-action-display-target="petInformationsContainer">

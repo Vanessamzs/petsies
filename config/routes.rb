@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pets#index"
+  root to: "pages#home"
 
   get "calendar", to: "pages#calendar"
 
-  resources :pets, except: [:index] do
+  resources :pets do
     resources :events
   end
   resources :user_pet
