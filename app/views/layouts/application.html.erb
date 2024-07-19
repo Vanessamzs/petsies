@@ -13,16 +13,24 @@
     <%= favicon_link_tag asset_path('fav.ico') %>
   </head>
 
-  <body>
-
-  <%= render "shared/navbar" %>
-
-  <%# /!\ À déplacer dans la page profil /!\ %>
-  <%= link_to "Log out", destroy_user_session_path, class:'btn red-basic-btn', data: {turbo_method: :delete} %>
+  <body class="body-container <%= 'full-page' if controller_name == 'pages' && action_name == 'home' %>">
 
   <%= render "shared/flashes" %>
+  <%# <%= render "shared/navbar" %>
+
+
+  <%# /!\ À déplacer dans la page profil /!\ %>
+  <% unless controller_name == "pages" %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
     <%= yield %>
-    <%= render "shared/footer" %>
+
+    <% unless controller_name == "pages" %>
+      <%= render 'shared/footer' %>
+    <% end %>
+
   </body>
 
+    <%# <%= render "shared/footer" %>
 </html>

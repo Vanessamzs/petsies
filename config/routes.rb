@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pets#index"
+  root to: "pages#home"
 
-  resources :pets, except: [:index] do
+  resources :pets do
     resources :events
   end
   resources :user_pet
