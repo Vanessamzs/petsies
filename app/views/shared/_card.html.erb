@@ -2,7 +2,7 @@
 
     <!-- Infos de l'animal -->
 
-    <% if pet.photo.key == nil %>
+    <% if @pet.photo.key == nil %>
       <%= image_tag "lumo.png", width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;" %>
     <% else %>
       <%= cl_image_tag pet.photo.key, width: "250px", height: "250px", alt: "Petit chat mignon", style: "border-radius: 50%;", class: "card-image" %>
