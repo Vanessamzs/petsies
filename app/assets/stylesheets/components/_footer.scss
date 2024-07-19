@@ -11,6 +11,7 @@
   position: fixed;
   top: calc(100vh - 48px);
   bottom: 0px;
+  z-index: 9999;
 
   .icon-link {
     color: #FFFBF4;

@@ -1,11 +1,14 @@
 <div class="container">
   <h1> Créer un évenement </h1>
   <%= simple_form_for [@pet, @event] do |f| %>
-  <%= f.input :event_type, label: "Type d'évènement", :input_html => { :class => 'form-input' } %>
-  <%= f.input :treatment_type, label: "Type de traitement", :input_html => { :class => 'form-input' } %>
-  <%= f.input :date, label: "Date", :input_html => { :class => 'form-input' } %>
-  <%= f.input :recurrence, label: "Récurrence", :input_html => { :class => 'form-input' } %>
-  <%= f.input :details, label: "Détails", :input_html => { :class => 'form-input' } %>
-  <%= f.submit "Enregistrer", class: 'green-basic-btn' %>
+  <%= f.input :title, placeholder: "Type d'évènement", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-font-awesome fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+  <%= f.input :treatment_type, placeholder: "Type de traitement", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-syringe fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+  <%= f.input :start, label: "Début", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-circle-play fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+  <%= f.input :end, label: "Fin", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-circle-stop fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+  <%= f.input :recurrence, placeholder: "Récurrence", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-arrow-rotate-right fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+  <%= f.input :details, placeholder: "Détails", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-circle-info fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+  <div class="button-center">
+    <%= f.button :submit, "Enregistrer", class: 'green-basic-btn' %>
+  </div>
   <% end %>
 </div>

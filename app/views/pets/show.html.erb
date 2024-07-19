@@ -1,9 +1,53 @@
-<h1><%= @pet.name %></h1>
+<div class="container">
+  <h1><%= @pet.name %></h1>
 
-<ul>
-  <% @pet.events.each do |event| %>
-  <li><%= event.event_type %></li>
-   <li>
-      <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-    </li>
+  <%= render "shared/card" %>
+
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Modifier</button>
+
+  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasBottomLabel">Modifier</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body small">
+      <%= render 'edit', pet: @pet, event: @event %>
+    </div>
+  </div>
+
+  <ul>
+    <% @upcoming_events.each do |event| %>
+      <% if Date.today == event.start %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          Attention, n'oubliez pas votre évènement ce jour : <%= event.title %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          </button>
+        </div>
+      <% elsif Date.today + 1 == event.start %>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          Evenement prévu pour demain : <%= event.title %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          </button>
+        </div>
+      <% elsif Date.today + 2 == event.start || Date.today + 3 == event.start %>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          Evenement prévu dans les 3 prochains jours : <%= event.title %> le <%= event.start %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          </button>
+        </div>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <div data-controller="fullcalendar"
+      data-fullcalendar-event-value='<%= @events.to_json %>'>
+  </div>
+
+  <%= link_to "Ajouter évènement", new_pet_event_path(@pet), class: "btn btn-secondary", style:"height 150px" %>
+
+  <% @events.each do |event| %>
+    <ul>
+      <%= event.title %>, <%= event.start %> <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </ul>
   <% end %>
+</div>

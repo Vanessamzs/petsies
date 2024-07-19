@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_pet
 
   def index
-    @events = pet.events
+    @events = @pet.events
   end
 
   def show
@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   def destroy
     @event = @pet.events.find(params[:id])
     @event.destroy
-    redirect_to root_path, notice: 'evènement supprimé avec succès'
+    redirect_to pet_path(@pet), notice: 'evènement supprimé avec succès'
   end
 
   private
@@ -37,6 +37,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:event_type, :treatment_type, :description, :date)
+    params.require(:event).permit(:title, :treatment_type, :description, :start, :end)
   end
 end
