@@ -1,5 +1,7 @@
+<%= render "shared/navbar" %>
 <h1> Calendrier de mes animaux </h1>
 
 <div data-controller="fullcalendar"
     data-fullcalendar-event-value='<%= @events.to_json %>'>
 </div>
+<%= render "shared/footer" %>
