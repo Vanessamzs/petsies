@@ -1,19 +1,15 @@
 <div class="container">
   <h1> Nouveau compagnon </h1>
-  <%= simple_form_for @pet do |f| %>
-    <%= f.input :name, placeholder: "Nom", label: ('<i class="fa-solid fa-medal fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => 'form-input' } %>
-    <%= f.input :animal_type, as: :radio_buttons, collection: Pet::SPECIES, label: " Type de compagnon " ,input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-    <%= f.input :breed, placeholder: "Race", label: ('<i class="fa-solid fa-shield-cat fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => 'form-input' } %>
-    <%= f.input :birth_date, as: :date, start_year: Date.today.year - 20, end_year: Date.today.year, label: ('<i class="fa-solid fa-lg fa-cake-candles" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => 'form-input' } %>
-    <%= f.input :weight, placeholder: "Poids", label: ('<i class="fa-solid fa-weight-hanging fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => 'form-input' } %>
-    <%= f.input :description, placeholder: "Description", label: ('<i class="fa-solid fa-file-signature fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => 'form-input' } %>
-    <%= f.input :photo, as: :file, label: ('<i class="fa-solid fa-image fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => 'form-input' } %>
+  <%= simple_form_for @pet, url: pets_path(@pet, step: params[:step]) do |f| %>
+      <%= f.input :name, placeholder: "Nom", label: ('<i class="fa-solid fa-medal fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input" }, wrapper_html: {class: "#{"hidden" unless @step == 0 }"} %>
+      <%= f.input :animal_type, as: :radio_buttons, collection: Pet::SPECIES, label: " Type de compagnon " ,input_html: { class: "tag-selector "  }, item_wrapper_class: 'tag-item', wrapper_html: {class: "#{"hidden" unless @step == 1 }"} %>
+      <%= f.input :breed, placeholder: "Race", label: ('<i class="fa-solid fa-shield-cat fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input" }, wrapper_html: {class: "#{"hidden" unless @step == 2 }"} %>
+      <%= f.input :birth_date, as: :date, start_year: Date.today.year - 20, end_year: Date.today.year, label: ('<i class="fa-solid fa-lg fa-cake-candles" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input " }, wrapper_html: {class: "#{"hidden" unless @step == 3 }"} %>
+      <%= f.input :weight, placeholder: "Poids", label: ('<i class="fa-solid fa-weight-hanging fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input " }, wrapper_html: {class: "#{"hidden" unless @step == 3 }" } %>
+      <%= f.input :description, placeholder: "Description", label: ('<i class="fa-solid fa-file-signature fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input" }, wrapper_html: {class: "#{"hidden" unless @step == 4 }" } %>
+      <%= f.input :photo, as: :file, label: ('<i class="fa-solid fa-image fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input" }, wrapper_html: {class: "#{"hidden" unless @step == 4 }"} %>
     <div class="button-center">
-      <%= f.button :submit, "Enregistrer", class: 'green-basic-btn' %>
+      <%= f.button :submit, @step == 4 ? "Enregistrer" : "Suivant", class: 'green-basic-btn' %>
     </div>
-    <%# /!\ "<br/>" à supprimer une fois le form dans la card /!\ %>
-    <br/>
-    <br/>
-    <br/>
   <% end %>
 </div>

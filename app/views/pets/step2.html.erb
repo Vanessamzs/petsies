@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for @pet, url: step2_pet_path(@pet), method: :patch do |f| %>
+    <div class="form-step">
+      <%= f.input :animal_type, as: :radio_buttons, collection: Pet::SPECIES, label: "Type de compagnon", input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+      <%= f.button :submit, "Next", class: 'green-basic-btn' %>
+      <%= f.input :breed, placeholder: "Race", label: ('<i class="fa-solid fa-shield-cat fa-lg" style="color: #48ADA9;"></i>').html_safe, input_html: { class: 'form-input' } %>
+      <%= f.button :submit, "Next", class: 'green-basic-btn' %>
+    </div>
+</div>
