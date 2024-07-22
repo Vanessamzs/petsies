@@ -22,24 +22,14 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     @user_pet = UserPet.new(user: current_user, pet: @pet)
+
     if @pet.save && @user_pet.save
       redirect_to pets_path
-
     else
       redirect_to new_pet_path({ pet: pet_params }.merge(step: params[:step].to_i + 1))
     end
   end
-  # def create
-  #   @pet = Pet.new(pet_params)
-  #   @user_pet = UserPet.new(user: current_user, pet: @pet)
-
-  #   if @pet.save && @user_pet.save
-  #     redirect_to pets_path
-  #   else
-  #     redirect_to new_pet_path({ pet: pet_params }.merge(step: params[:step].to_i + 1))
-  #   end
-  # end
-
+  
   def edit
     @pet = Pet.find(params[:id])
   end
@@ -47,7 +37,7 @@ class PetsController < ApplicationController
   def update
     @pet = Pet.find(params[:id])
     if @pet.update(pet_params)
-      redirect_to @pet, notice: 'Le compagnon a été mis à jour avec succès.'
+      redirect_to @pet, notice: 'Le compagnon a été modifié avec succès.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -56,7 +46,7 @@ class PetsController < ApplicationController
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
-    redirect_to pets_path, status: :see_other
+    redirect_to pets_path, status: :see_other, notice: 'Le compagnon a été retiré'
   end
 
   private
