@@ -52,6 +52,7 @@
   justify-content: space-between !important;
   position: relative !important;
   top: 9px !important;
+  width: 95% !important;
 }
 
 .fc-toolbar-chunk{
@@ -84,4 +85,45 @@
   display: flex !important;
   justify-content: center !important;
   margin-bottom: 25px;
+}
+
+.fc-toolbar-title{
+  position: relative;
+  top: 132px;
+}
+
+.fc-day-today{
+  background-color: transparent !important;
+}
+
+.fc-day-today .fc-daygrid-day-number{
+  color: #FFFBF4 !important;
+  font-weight: bolder;
+  background-color: #E6614C !important;
+  border-radius: 50% !important;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+// thead{
+//   background-color: #48ADA9 !important;
+// }
+
+// .fc-col-header-cell{
+//   border: none !important;
+// }
+// // + modifier couleur des jours de la semaine par #FFFBF4 pour thead en couleur
+
+.fc-col-header-cell-cushion{
+  color: #48ADA9 !important;
+}
+
+.fc-event-title{
+  text-overflow: ellipsis !important;
+}
+
+.events-list-links{
+  color: #36827F;
+  font-weight: bold;
+  text-decoration: none;
 }
