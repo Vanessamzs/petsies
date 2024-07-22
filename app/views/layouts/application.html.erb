@@ -11,6 +11,7 @@
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag asset_path('fav.ico') %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
   </head>
 
   <body class="body-container <%= 'full-page' if controller_name == 'pages' && action_name == 'home' %>">
