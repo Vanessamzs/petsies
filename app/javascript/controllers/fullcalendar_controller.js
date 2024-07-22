@@ -18,22 +18,31 @@ export default class extends Controller {
       let calendar = new Calendar(this.element, {
         firstDay: 1,
         locale: 'fr',
-        height: 500,
+        contentHeight: "auto",
         plugins: [dayGridPlugin, listPlugin, interactionPlugin],
         events: events,
         headerToolbar: {
           center: 'dayGridMonth,listWeek,today',
-          end: 'prev,next'
+          end: 'prev,next',
         },
+
+        dayMaxEventRows: true,
+
         views: {
           listWeek: {
             buttonText: 'Semaine'
           },
           dayGridMonth: {
-            buttonText: 'Mois'
+            buttonText: 'Mois',
+            dayMaxEventRows: 1,
           },
         },
+
         eventColor: '#48ADA9',
+
+        moreLinkContent: function(args) {
+          return args.num + ' Évènements';
+        },
 
         eventClick: function(info) {
           alert(info.event.title + "\n"
@@ -50,6 +59,7 @@ export default class extends Controller {
 
       });
       calendar.render();
+
     };
     const today = document.querySelector('.fc-today-button');
     today.innerHTML = 'Aujourd\'hui';
