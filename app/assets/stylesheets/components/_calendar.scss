@@ -97,22 +97,9 @@
 }
 
 .fc-day-today .fc-daygrid-day-number{
-  color: #FFFBF4 !important;
   font-weight: bolder;
-  background-color: #E6614C !important;
-  border-radius: 50% !important;
-  padding-left: 6px;
-  padding-right: 6px;
+  color: #E6614C !important;
 }
-
-// thead{
-//   background-color: #48ADA9 !important;
-// }
-
-// .fc-col-header-cell{
-//   border: none !important;
-// }
-// // + modifier couleur des jours de la semaine par #FFFBF4 pour thead en couleur
 
 .fc-col-header-cell-cushion{
   color: #48ADA9 !important;
@@ -137,8 +124,14 @@
   text-decoration: none;
   color: #FFFBF4;
   background-color: #48ADA9;
+  // padding: 5px !important;
   padding: 5px !important;
-  text-overflow: ellipsis !important;
+  height: 26px;
+  text-align: center;
+  vertical-align:middle;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  // text-overflow: ellipsis !important;
 }
 
 .fc-popover{
@@ -146,7 +139,7 @@
   color: #060D0E;
   opacity: 1 !important;
   border-radius: 10px !important;
-  border: 2px solid #36827F !important;
+  border: 1px solid #36827F !important;
 }
 
 .fc-popover-header {
@@ -166,4 +159,20 @@
   flex-direction: column;
   gap: 5px;
   margin: 5px 5px 5px 5px !important;
+}
+
+.fc-daygrid-day-top{
+  justify-content: center;
+}
+
+.fc-daygrid-day-events {
+  min-height: 1.5em !important;
+}
+
+.fc-daygrid-day-events {
+  margin-bottom: 0.5em !important;
+}
+
+.event-list-item{
+  border-bottom: 1px solid #DDD;
 }

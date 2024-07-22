@@ -19,6 +19,7 @@ export default class extends Controller {
         firstDay: 1,
         locale: 'fr',
         contentHeight: "auto",
+        fixedWeekCount: false,
         plugins: [dayGridPlugin, listPlugin, interactionPlugin],
         events: events,
         headerToolbar: {
@@ -34,14 +35,15 @@ export default class extends Controller {
           },
           dayGridMonth: {
             buttonText: 'Mois',
-            dayMaxEventRows: 1,
+            dayMaxEventRows: 0,
           },
         },
 
         eventColor: '#48ADA9',
 
         moreLinkContent: function(args) {
-          return args.num + ' Évènements';
+          // return args.num;
+          return "";
         },
 
         eventClick: function(info) {

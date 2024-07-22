@@ -36,7 +36,7 @@
      <% @events.each do |event| %>
        <div data-controller="sweetalert">
           <ul style="padding-left : 0px !important;">
-            <div class="container p-0 m-0 d-flex flex-row justify-content-between w-100">
+            <div class="container p-0 m-0 d-flex flex-row justify-content-between w-100 event-list-item">
               <p>
                 <%= link_to event.title, pet_event_path(@pet, event), class: "events-list-links" %>, le <%= event.start.strftime("%d/%m/%Y") %> à <%= event.start.strftime("%H") %>h<%= event.start.strftime("%M") %>
               </p>
