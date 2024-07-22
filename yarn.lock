@@ -2,6 +2,28 @@
 # yarn lockfile v1
 
 
+"@fullcalendar/core@^6.1.15", "@fullcalendar/core@~6.1.15":
+  "integrity" "sha512-BuX7o6ALpLb84cMw1FCB9/cSgF4JbVO894cjJZ6kP74jzbUZNjtwffwRdA+Id8rrLjT30d/7TrkW90k4zbXB5Q=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/core/-/core-6.1.15.tgz"
+  "version" "6.1.15"
+  dependencies:
+    "preact" "~10.12.1"
+
+"@fullcalendar/daygrid@^6.1.15":
+  "integrity" "sha512-j8tL0HhfiVsdtOCLfzK2J0RtSkiad3BYYemwQKq512cx6btz6ZZ2RNc/hVnIxluuWFyvx5sXZwoeTJsFSFTEFA=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-6.1.15.tgz"
+  "version" "6.1.15"
+
+"@fullcalendar/interaction@^6.1.15":
+  "integrity" "sha512-DOTSkofizM7QItjgu7W68TvKKvN9PSEEvDJceyMbQDvlXHa7pm/WAVtAc6xSDZ9xmB1QramYoWGLHkCYbTW1rQ=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-6.1.15.tgz"
+  "version" "6.1.15"
+
+"@fullcalendar/list@^6.1.15":
+  "integrity" "sha512-U1bce04tYDwkFnuVImJSy2XalYIIQr6YusOWRPM/5ivHcJh67Gm8CIMSWpi3KdRSNKFkqBxLPkfZGBMaOcJYug=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/list/-/list-6.1.15.tgz"
+  "version" "6.1.15"
+
 "@hotwired/stimulus@^3.0.0", "@hotwired/stimulus@>= 3":
   "integrity" "sha512-eGeIqNOQpXoPAIP7tC1+1Yc1yl1xnwYqg+3mzqxyrbE5pg5YFBZcA6YoTiByJB6DKAEsiWtl6tjTJS4IYtbB7A=="
   "resolved" "https://registry.npmjs.org/@hotwired/stimulus/-/stimulus-3.2.2.tgz"
@@ -18,6 +40,11 @@
   "integrity" "sha512-ygFIdTqqwG4fFP7kkiYlvayZppeIQX2aPpirsngkv1xM1lP0piDY5QEh68nQnIKvz64hfocxhBaD/uK3sSK1yQ=="
   "resolved" "https://registry.npmjs.org/hotkeys-js/-/hotkeys-js-3.13.7.tgz"
   "version" "3.13.7"
+
+"preact@~10.12.1":
+  "integrity" "sha512-l8386ixSsBdbreOAkqtrwqHwdvR35ID8c3rKPa8lCWuO86dBi32QWHV4vfsZK1utLLFMvw+Z5Ad4XLkZzchscg=="
+  "resolved" "https://registry.npmjs.org/preact/-/preact-10.12.1.tgz"
+  "version" "10.12.1"
 
 "stimulus-use@^0.52.2":
   "integrity" "sha512-413+tIw9n6Jnb0OFiQE1i3aP01i0hhGgAnPp1P6cNuBbhhqG2IOp8t1O/4s5Tw2lTvSYrFeLNdaY8sYlDaULeg=="

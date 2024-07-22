@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
 // import timeGridPlugin from '@fullcalendar/timegrid';
 // import Rails from '@rails/ujs';
 
@@ -18,7 +19,7 @@ export default class extends Controller {
         firstDay: 1,
         locale: 'fr',
         height: 500,
-        plugins: [dayGridPlugin, listPlugin],
+        plugins: [dayGridPlugin, listPlugin, interactionPlugin],
         events: events,
         headerToolbar: {
           center: 'dayGridMonth,listWeek,today',
@@ -33,6 +34,20 @@ export default class extends Controller {
           },
         },
         eventColor: '#48ADA9',
+
+        eventClick: function(info) {
+          alert(info.event.title + "\n"
+            + 'Début : ' + Intl.DateTimeFormat('fr-FR', {dateStyle: 'full', timeStyle: 'medium'}).format(info.event.start) + "\n"
+            + 'Fin : ' + Intl.DateTimeFormat('fr-FR', {dateStyle: 'full', timeStyle: 'medium'}).format(info.event.end) + "\n"
+            + 'Description : ' + info.event.extendedProps.description
+          );
+        },
+
+        dateClick: function(info) {
+          alert('Date: ' + info.dateStr);
+          alert('Resource ID: ' + info.resource.id);
+        }
+
       });
       calendar.render();
     };
