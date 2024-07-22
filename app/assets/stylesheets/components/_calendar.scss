@@ -176,3 +176,17 @@
 .event-list-item{
   border-bottom: 1px solid #DDD;
 }
+
+// Angles arrondis du calendrier
+
+.fc-scrollgrid{
+  border-radius: 10px;
+}
+
+td{
+  border-radius: 10px 0px 10px 10px !important;
+}
+
+th{
+  border-radius: 0px 10px 0px 10px !important;
+}
