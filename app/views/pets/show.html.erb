@@ -34,7 +34,12 @@
 
   <% @events.each do |event| %>
     <ul>
-      <%= link_to event.title, pet_event_path(@pet, event) %>, <%= event.start %> <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <div data-controller="sweetalert">
+        <%= link_to event.title, pet_event_path(@pet, event) %>, <%= event.start %> 
+        <div data-sweetalert-target="button" data-action="click->sweetalert#delete">
+          <%= link_to "Supprimer", pet_event_path(@pet, event), class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+      </div>
     </ul>
   <% end %>
 </div>
