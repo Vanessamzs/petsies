@@ -18,7 +18,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @user_pet = UserPet.new(user: current_user, pet: @pet)
     if @pet.save! && @user_pet.save!
-      redirect_to pets_path
+      redirect_to pets_path, notice: "Le compagnon a été ajouté avec succès."
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +31,7 @@ class PetsController < ApplicationController
   def update
     @pet = Pet.find(params[:id])
     if @pet.update(pet_params)
-      redirect_to @pet, notice: 'Le compagnon a été mis à jour avec succès.'
+      redirect_to @pet, notice: 'Le compagnon a été modifié avec succès.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -40,7 +40,7 @@ class PetsController < ApplicationController
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
-    redirect_to pets_path, status: :see_other
+    redirect_to pets_path, status: :see_other, notice: 'Le compagnon a été retiré'
   end
 
   private

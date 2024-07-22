@@ -26,29 +26,24 @@
     <% end %>
   </ul>
 
-  <h1><%= @pet.name %></h1>
-
   <div data-controller="fullcalendar"
       data-fullcalendar-event-value='<%= @events.to_json %>'>
   </div>
 
-    <div class="container mt-4 w-100 p-0 m-0">
-     <% @events.each do |event| %>
-       <div data-controller="sweetalert">
-          <ul style="padding-left : 0px !important;">
-            <div class="container p-0 m-0 d-flex flex-row justify-content-between w-100 event-list-item">
-              <p>
-                <%= link_to event.title, pet_event_path(@pet, event), class: "events-list-links" %>, le <%= event.start.strftime("%d/%m/%Y") %> à <%= event.start.strftime("%H") %>h<%= event.start.strftime("%M") %>
-              </p>
-               <div data-sweetalert-target="button" data-action="click->sweetalert#delete">
-                <%= link_to pet_event_path(@pet, event), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-                  <i class="fa-solid fa-trash fa-lg" style="color: #48ADA9;"></i>
-                <% end %>
-             </div>
-            </div>
-          </ul>
-        </div>
-      <% end %>
-    </div>
+  <div class="container mt-4 w-100 p-0 m-0">
+    <% @events.each do |event| %>
+      <div data-controller="sweetalert">
+        <ul style="padding-left : 0px !important;">
+          <div class="container p-0 m-0 d-flex flex-row justify-content-between w-100">
+            <p>
+              <%= link_to event.title, pet_event_path(@pet, event), class: "events-list-links" %>, le <%= event.start.strftime("%d/%m/%Y") %> à <%= event.start.strftime("%H") %>h<%= event.start.strftime("%M") %>
+            </p>
+            <%= link_to pet_event_path(@pet, event), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <i class="fa-solid fa-trash fa-lg" style="color: #48ADA9;"></i>
+            <% end %>
+          </div>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
