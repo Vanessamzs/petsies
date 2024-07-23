@@ -15,6 +15,18 @@
           <% end %>
           <h3><%= pet.name %></h3>
         </div>
+
+
+            <div class="grid-item-add-pet">
+              <h3>Ajoute un compagnon</h3>
+                <div class="round-button" style="
+  margin-bottom: 5px">
+                <%= link_to raw('<i class="fa-solid fa-plus fa-2xl" style="color: #FFFBF4; margin-top: 10px;"></i>'), new_pet_path %>
+
+                </div>
+              </div>
+            </div>
+
       <% end %>
     <% end %>
   </div>
