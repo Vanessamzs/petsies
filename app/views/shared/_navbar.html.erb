@@ -1,7 +1,8 @@
   <div class="navbar-container" data-controller="navbar-notifications">
     <div class="petsies-navbar">
-
-        <%= image_tag "logo-white.png", class: "navbar-logo" %>
+        <%= link_to pets_path do %>
+          <%= image_tag "logo-white.png", class: "navbar-logo" %>
+        <% end %>
         <% if current_user != nil %>
           <div data-action="click->navbar-notifications#toggle" data-navbar-notifications-target="toggleButton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotifications" aria-controls="offcanvasTop">
             <i class="fa-solid fa-bell fa-xl fa-rotate-by" style="color: #fffbf4; --fa-rotate-angle: 25deg;"></i>
