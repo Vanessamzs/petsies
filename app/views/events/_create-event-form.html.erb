@@ -1,13 +1,13 @@
 <div class="container">
   <h1>Créer un évenement</h1>
   <%= simple_form_for [@pet, Event.new], data: { controller: "toggle-for-form", toggle_for_form_show_if_value: "Traitement", toggle_for_form_show_recurrence_if_value: "Loisir" } do |f| %>
-    <div data-toggle-for-form-target="category">
+    <div data-toggle-for-form-target="title">
       <%= f.input :title,
                 as: :radio_buttons,
                 collection_wrapper_tag: 'div',
-                collection_wrapper_class: 'category-wrapper',
-                item_wrapper_class: 'category-item',
-                input_html: { class: 'category-selector', data: { action: 'change->toggle-for-form#toggleField' } },
+                collection_wrapper_class: 'title-wrapper',
+                item_wrapper_class: 'title-item',
+                input_html: { class: 'title-selector', data: { action: 'change->toggle-for-form#toggleField' } },
                 collection: ["Rendez-vous", "Traitement", "Loisir"],
                 label_wrapper_tag: 'div',
                 label_wrapper_class: 'label-wrapper',

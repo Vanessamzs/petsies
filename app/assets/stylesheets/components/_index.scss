@@ -8,7 +8,7 @@
 @import "footer";
 @import "mini_card";
 @import "home";
-
+@import "mini-card-add-pet";
 
 .body-container{
   margin-bottom: 60px;
@@ -24,4 +24,8 @@
 
 .my-pets-container{
   margin-bottom: 18%;
+}
+
+ul{
+  padding: 0px;
 }

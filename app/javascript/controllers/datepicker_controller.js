@@ -11,6 +11,7 @@ export default class extends Controller {
     flatpickr(this.element, {
       enableTime: true,
       dateFormat: "Y-m-d H:i",
+      disableMobile: "true"
     });
 
 }};

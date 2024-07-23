@@ -151,23 +151,22 @@ abbr{
 }
 // css pour le radio button
 
-.category-wrapper {
+.title-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.category-item {
-  flex: 0 0 30%;
+.title-item {
   box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
-.category-selector {
+.title-selector {
   position: absolute;
   transform: scale(0);
 }
 
-.category-selector + label {
+.title-selector + label {
   display: flex;
   box-sizing: border-box;
   width: 97%;
@@ -182,17 +181,17 @@ abbr{
   align-items: center;
 }
 
-.category-selector:checked + label {
+.title-selector:checked + label {
   color: white !important;
   background-color: #48ADA9;
 }
 
-.category-selector + label i {
+.title-selector + label i {
   position: absolute;
   top: 10px; /* Adjust as necessary */
   left: 10px; /* Adjust as necessary */
 }
-.category-selector:checked + label {
+.title-selector:checked + label {
   color: white !important;
 }
 

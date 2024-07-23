@@ -30,10 +30,6 @@
       data-fullcalendar-event-value='<%= @events.to_json %>'>
   </div>
 
-
-
-
-
   <div class="container mt-4 w-100 p-0 m-0">
     <% @events.each do |event| %>
       <div class="modal fade" id="<%= event.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -59,3 +55,4 @@
     <% end %>
   </div>
 </div>
+
