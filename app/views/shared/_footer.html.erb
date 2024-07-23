@@ -1,3 +1,4 @@
+<% if current_user != nil %>
 <footer class="phone-footer" data-controller="highlight-footer">
   <%= link_to pets_path, class: "icon-link home-icon" do %>
     <i class="fa-solid fa-house fa-lg"></i>
@@ -17,7 +18,27 @@
     <div class="offcanvas-body small">
       <div class="offcanvas-content-style">
         <!-- /!\ FAKE - V - A RETIRER UNE FOIS L'INPUT CRÉÉ /!\ -->
-        <div class="search" style="width: 80%; height: 2.2em; background-color: #FFFFFF; border-radius: 30px; display: flex; justify-content: flex-start; align-items: center; padding-left: 35px; padding: 8px; color: #000000;"><i class="fa-solid fa-magnifying-glass fa-lg"></i></div>
+
+
+
+        <div class="grid-container-search">
+          <% current_user.pets.each do |pet| %>
+            <%= link_to pet_path(pet) do %>
+              <div class="grid-avatar-search">
+                <% if pet.photo.key == nil %>
+                  <%= image_tag "lumo.png", class: "mini-avatar-search" %>
+                <% else %>
+                  <%= cl_image_tag pet.photo.key, class: "mini-avatar-search" %>
+                <% end %>
+              </div>
+               <% end %>
+          <% end %>
+         </div>
+
+
+
+
+
         <!-- /!\ FAKE - ^ - A RETIRER UNE FOIS L'INPUT CRÉÉ /!\ -->
       </div>
     </div>
@@ -45,3 +66,4 @@
   </div>
 </div>
 </footer>
+<% end %>

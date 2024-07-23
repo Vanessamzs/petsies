@@ -1,7 +1,3 @@
-.my-pets-container {
-  text-align: center;
-  padding: 20px;
-}
 .grid-container {
   display: grid;
   gap: 30px;
@@ -10,7 +6,7 @@
   a{
     text-decoration: none;
   }
-  .grid-item {
+  .grid-item-add-pet{
     background: rgba(211, 211, 211, 0.199);
     padding: 20px;
     border-radius: 15px;
@@ -22,22 +18,8 @@
     color: black;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 15px;
-
-
-    .mini-avatar{
-      // height: 100px;
-      aspect-ratio: 1/1;
-      width: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      align-items: center;
-    }
-    .grid-item h3 {
-      margin: 10px 0 0;
-      font-size: 1.2em;
-      font-weight: bolder;
-    }
   }
-  }
+}

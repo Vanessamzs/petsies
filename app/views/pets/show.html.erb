@@ -30,20 +30,29 @@
       data-fullcalendar-event-value='<%= @events.to_json %>'>
   </div>
 
-  <!-- <div class="container mt-4 w-100 p-0 m-0">
+  <div class="container mt-4 w-100 p-0 m-0">
     <% @events.each do |event| %>
-      <div data-controller="sweetalert">
-        <ul style="padding-left : 0px !important;">
-          <div class="container p-0 m-0 d-flex flex-row justify-content-between w-100 event-list-item">
-            <p>
-              <%= link_to event.title, pet_event_path(@pet, event), class: "events-list-links" %>, le <%= event.start.strftime("%d/%m/%Y") %> à <%= event.start.strftime("%H") %>h<%= event.start.strftime("%M") %>
-            </p>
-            <%= link_to pet_event_path(@pet, event), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-              <i class="fa-solid fa-trash fa-lg" style="color: #48ADA9;"></i>
-            <% end %>
+      <div class="modal fade" id="<%= event.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"><%= event.title %></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= event.details %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" style="border: none">
+                <%= link_to pet_event_path(@pet, event), data: { turbo_method: :delete } do %>
+                  <i class="fa-solid fa-trash fa-lg" style="color: #48ADA9;"></i>
+                <% end %>
+              </button>
+            </div>
           </div>
-        </ul>
+        </div>
       </div>
     <% end %>
-  </div> -->
+  </div>
 </div>
+

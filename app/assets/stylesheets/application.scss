@@ -13,6 +13,7 @@
 @import "components/card";
 @import "components/forms";
 @import "components/calendar";
+@import "components/modal";
 
 //Fonts
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
@@ -40,4 +41,39 @@ h3{
   width: 100%;
   text-align: center;
   color: #48ADA9;
+}
+
+.questions{
+  margin-top: 30px !important;
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+  color: #48ADA9;
+}
+
+.infos{
+  height:100px !important;
+  display: flex;
+  justify-content: center !important;
+}
+.form-progression-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 86vh;
+  justify-content: center
+}
+
+.hide-hero-btn{
+  display: none;
+}
+
+.progress{
+  //margin-bottom: 35px;
+  border-radius: 11px;
+}
+
+.follow{
+  margin-top: 0;
+  text-align: center;
 }
