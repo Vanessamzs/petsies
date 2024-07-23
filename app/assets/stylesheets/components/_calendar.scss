@@ -191,10 +191,15 @@ th{
   border-radius: 0px 10px 0px 10px !important;
 }
 
+table, th, td{
+  border: none !important;
+}
+
 .fc-list-day-cushion{
   background-color: #48ADA9 !important;
   color: #FFFBF4 !important;
   text-decoration: none !important;
+  border-radius: 11px 11px 0px 0px !important;
 }
 
 .fc-list-day-text,
@@ -205,4 +210,24 @@ th{
 
 .fc-listWeek-view{
   border: none !important;
+}
+
+.fc-list-event-time{
+  border-radius: 0px !important;
+  background-color: #FFFBF4 !important;
+}
+
+.fc-list-event-graphic{
+  border-radius: 0px !important;
+  background-color: #FFFBF4 !important;
+}
+
+.fc-list-event-title{
+  border-radius: 0px !important;
+  background-color: #FFFBF4 !important;
+}
+
+.fc-scroller{
+  overflow: hidden !important;
+  border-radius: 11px !important;
 }
