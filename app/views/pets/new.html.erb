@@ -20,7 +20,7 @@
 <div class="follow">
   <p>étape 2/5</p>
 </div>
-    <h3 class="questions">Bienvenue ! Quel animal est <%= @pet.name %>?</h3>
+    <h3 class="questions">Bienvenue ! Quel animal est <%= @pet.name %> ?</h3>
       <% end %>
       <%= f.input :animal_type, as: :radio_buttons, collection: Pet::SPECIES, label: " Type de compagnon " ,input_html: { class: "tag-selector " }, item_wrapper_class: 'tag-item', wrapper_html: {class: "#{"hidden" unless @step == 1 }"} %>
       <% if @step == 2 %>
@@ -30,7 +30,7 @@
 <div class="follow">
   <p>étape 3/5</p>
 </div>
-    <h3 class="questions">oh!! un petit<%= @pet.animal_type %> ! et de quel race?</h3>
+    <h3 class="questions">Oh !! Un petit <%= @pet.animal_type %> ! Et de quel race ?</h3>
       <% end %>
       <%= f.input :breed, placeholder: "Race", label: ('<i class="fa-solid fa-shield-cat fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input" }, wrapper_html: {class: "#{"hidden" unless @step == 2 }"} %>
       <% if @step == 3 %>
@@ -40,7 +40,7 @@
 <div class="follow">
   <p>étape 4/5</p>
 </div>
-    <h3 class="questions">la date de naissance et le poids de <%= @pet.name %>?</h3>
+    <h3 class="questions">La date de naissance et le poids de <%= @pet.name %>?</h3>
       <% end %>
       <%= f.input :birth_date, as: :date, start_year: Date.today.year - 20, end_year: Date.today.year, label: ('<i class="fa-solid fa-lg fa-cake-candles" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input " }, wrapper_html: {class: "#{"hidden" unless @step == 3 }"} %>
       <%= f.input :weight, placeholder: "Poids", label: ('<i class="fa-solid fa-weight-hanging fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input " }, wrapper_html: {class: "#{"hidden" unless @step == 3 }" } %>
