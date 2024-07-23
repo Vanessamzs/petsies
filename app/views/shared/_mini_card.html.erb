@@ -3,30 +3,25 @@
 
 
 
-  <h1> Mes compagnons </h1>
-  <div class="grid-container" pe>
-    <% @pets.each do |pet| %>
-      <%= link_to pet_path(pet) do %>
-        <div class="grid-item">
-          <% if pet.photo.key == nil %>
-            <%= image_tag "lumo.png", class: "mini-avatar" %>
-          <% else %>
-            <%= cl_image_tag pet.photo.key, class: "mini-avatar" %>
-          <% end %>
-          <h3><%= pet.name %></h3>
-        </div>
-
-
-            <div class="grid-item-add-pet">
-              <h3>Ajoute un compagnon</h3>
-                <div class="round-button" style="
-  margin-bottom: 5px">
-                <%= link_to raw('<i class="fa-solid fa-plus fa-2xl" style="color: #FFFBF4; margin-top: 10px;"></i>'), new_pet_path %>
-
-                </div>
-              </div>
-            </div>
-
-      <% end %>
+<h1> Mes compagnons </h1>
+<div class="grid-container">
+  <% @pets.each do |pet| %>
+    <%= link_to pet_path(pet) do %>
+      <div class="grid-item">
+        <% if pet.photo.key == nil %>
+          <%= image_tag "lumo.png", class: "mini-avatar" %>
+        <% else %>
+          <%= cl_image_tag pet.photo.key, class: "mini-avatar" %>
+        <% end %>
+        <h3><%= pet.name %></h3>
+      </div>
     <% end %>
+  <% end %>
+
+  <div class="grid-item-add-pet">
+    <h3>Ajoute un compagnon</h3>
+    <div class="round-button" style="margin-bottom: 5px">
+      <%= link_to raw('<i class="fa-solid fa-plus fa-2xl" style="color: #FFFBF4; margin-top: 10px;"></i>'), new_pet_path %>
+    </div>
   </div>
+</div>
