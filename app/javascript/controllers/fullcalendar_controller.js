@@ -36,7 +36,16 @@ export default class extends Controller {
 
         views: {
           listWeek: {
-            buttonText: 'Semaine'
+            buttonText: 'Semaine',
+            noEventsContent: 'Aucun évènement cette semaine.',
+
+            eventTimeFormat: {
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: false,
+              meridiem: false,
+            },
+            allDayText: 'Toute la journée',
           },
           dayGridMonth: {
             buttonText: 'Mois',
