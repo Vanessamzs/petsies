@@ -56,8 +56,10 @@
       <%= f.input :description, placeholder: "Description", label: ('<i class="fa-solid fa-file-signature fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input" }, wrapper_html: {class: "#{"hidden" unless @step == 4 }" } %>
       <%= f.input :photo, as: :file, label: ('<i class="fa-solid fa-image fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input" }, wrapper_html: {class: "#{"hidden" unless @step == 4 }"} %>
     <div class="button-center">
+      <% if @step > 0 %>
+          <%= link_to "Précédent", new_pet_path(@pet, step: @step - 1), class: 'green-basic-btn text-decoration-none' %>
+      <% end %>
       <%= f.button :submit, @step == 4 ? "Enregistrer" : "Suivant", class: 'green-basic-btn'%>
-      <i class="fa-solid fa-forward" style="color: #ffffff;"></i>
     </div>
   <% end %>
 </div>
