@@ -1,7 +1,7 @@
 class Pet < ApplicationRecord
 
 
-  SPECIES = ['Chien', 'Chat', 'Hamster', 'Souris', 'Cheval', 'Serpent', 'Oiseau', 'Poisson', 'Grenouille', 'Araignée']
+  SPECIES = ['Chien', 'Chat', 'Hamster', 'Souris', 'Cheval', 'Serpent', 'Oiseau', 'Poisson', 'Grenouille', 'Araignée', 'Dragon']
 
 
   has_many :user_pets, dependent: :destroy # donne la méthode @pet.user_pets

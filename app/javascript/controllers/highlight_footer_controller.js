@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="highlight-footer"
 export default class extends Controller {
-  static targets = ["profile"]
+  static targets = ["profile", "search"]
   connect() {
     this.highlightActiveLink();
   }
@@ -22,5 +22,9 @@ export default class extends Controller {
 
   highlightProfileLink(){
     this.profileTarget.classList.toggle('active');
+  }
+
+  highlightSearchLink(){
+    this.searchTarget.classList.toggle('active');
   }
 }

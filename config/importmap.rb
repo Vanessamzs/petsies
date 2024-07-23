@@ -15,3 +15,6 @@ pin "preact/hooks", to: "preact--hooks.js" # @10.12.1
 pin "@fullcalendar/daygrid", to: "https://cdn.skypack.dev/@fullcalendar/daygrid@6.1.15" # @6.1.15
 pin "@fullcalendar/list", to: "https://cdn.skypack.dev/@fullcalendar/list@6.1.15"
 pin "flatpickr" # @4.6.13
+pin "sweetalert2" # @11.12.3
+pin "@fullcalendar/interaction", to: "https://cdn.skypack.dev/@fullcalendar/interaction@6.1.15"
+

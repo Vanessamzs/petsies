@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   def create
     @event = @pet.events.new(event_params)
     if @event.save
-      redirect_to pet_path(@pet)
+      redirect_to pet_path(@pet), notice: 'Évènement créé avec succès'
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   def destroy
     @event = @pet.events.find(params[:id])
     @event.destroy
-    redirect_to pet_path(@pet), notice: 'evènement supprimé avec succès'
+    redirect_to pet_path(@pet), notice: 'Évènement supprimé avec succès'
   end
 
   private
