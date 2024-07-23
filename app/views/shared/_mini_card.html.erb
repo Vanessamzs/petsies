@@ -1,10 +1,8 @@
 
 <%# il s'agit du code des card utiliser dans l'index.html.erb a voir ce qu'on en fait  %>
 
-
-
   <h1> Mes compagnons </h1>
-  <div class="grid-container" pe>
+  <div class="grid-container">
     <% @pets.each do |pet| %>
       <%= link_to pet_path(pet) do %>
         <div class="grid-item">
@@ -27,6 +25,5 @@
 
                 </div>
               </div>
-
-
-  </div>
+ 
+   </div>

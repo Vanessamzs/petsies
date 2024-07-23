@@ -3,8 +3,6 @@ import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
-// import timeGridPlugin from '@fullcalendar/timegrid';
-// import Rails from '@rails/ujs';
 
 export default class extends Controller {
   static values = {
@@ -55,18 +53,23 @@ export default class extends Controller {
 
         eventColor: '#48ADA9',
 
+        eventDidMount: function(arg) {
+          arg.el.setAttribute("data-bs-toggle", "modal")
+          arg.el.setAttribute("data-bs-target", `#${arg.event.id}`)
+        },
+
         moreLinkContent: function(args) {
           // return args.num;
           return "";
         },
 
-        eventClick: function(info) {
-          alert(info.event.title + "\n"
-            + 'Début : ' + Intl.DateTimeFormat('fr-FR', {dateStyle: 'full', timeStyle: 'medium'}).format(info.event.start) + "\n"
-            + 'Fin : ' + Intl.DateTimeFormat('fr-FR', {dateStyle: 'full', timeStyle: 'medium'}).format(info.event.end) + "\n"
-            + 'Description : ' + info.event.extendedProps.description
-          );
-        },
+        // eventClick: function(info) {
+        //   alert(info.event.title + "\n"
+        //     + 'Début : ' + Intl.DateTimeFormat('fr-FR', {dateStyle: 'full', timeStyle: 'medium'}).format(info.event.start) + "\n"
+        //     + 'Fin : ' + Intl.DateTimeFormat('fr-FR', {dateStyle: 'full', timeStyle: 'medium'}).format(info.event.end) + "\n"
+        //     + 'Description : ' + info.event.extendedProps.description
+        //   );
+        // },
 
         dateClick: function(info) {
           alert('Date: ' + info.dateStr);
