@@ -1,10 +1,11 @@
 .alert {
-  bottom: 16px;
+  bottom: -10px;
   right: 0px;
   z-index: 1000;
   width: 100%;
   max-width: 100%;
   border: none;
+  border-radius: 11px;
 }
 
 .alert-info{

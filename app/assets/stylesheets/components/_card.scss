@@ -1,5 +1,5 @@
 .card-container{
-  width: 80%;
+  width: 90%;
   height: fit-content;
   padding: 20px;
   background-color: #FFFBF4;
@@ -8,7 +8,9 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 10%;
+  margin: 5%;
+  margin-top: 10% !important;
+  margin-bottom: 10% !important;
   gap: 15px;
 
   border-radius: 50px;
