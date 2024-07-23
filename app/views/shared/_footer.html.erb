@@ -1,3 +1,4 @@
+<% if current_user != nil %>
 <footer class="phone-footer" data-controller="highlight-footer">
   <%= link_to pets_path, class: "icon-link home-icon" do %>
     <i class="fa-solid fa-house fa-lg"></i>
@@ -65,3 +66,4 @@
   </div>
 </div>
 </footer>
+<% end %>
