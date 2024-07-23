@@ -27,6 +27,11 @@ export default class extends Controller {
           end: 'prev,next',
         },
 
+        buttonText: {
+          //Here I make the button show French date instead of a text.
+          today: 'Aujourd\'hui'
+        },
+
         dayMaxEventRows: true,
 
         views: {
@@ -63,7 +68,7 @@ export default class extends Controller {
       calendar.render();
 
     };
-    const today = document.querySelector('.fc-today-button');
-    today.innerHTML = 'Aujourd\'hui';
+    // const today = document.querySelector('.fc-today-button');
+    // today.innerHTML = 'Aujourd\'hui';
   }
 }
