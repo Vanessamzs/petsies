@@ -69,6 +69,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
+  position: relative;
 }
 
 .pet_animal_type{
@@ -146,4 +148,61 @@ abbr{
 .shared-links{
   color:#48ADA9;
   text-decoration: none;
+}
+// css pour le radio button
+
+.category-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-item {
+  flex: 0 0 30%;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  display: flex;
+  box-sizing: border-box;
+  width: 97%;
+  height: 59px;
+  font-size: 12px;
+  padding: 10px;
+  border: 1px solid #EAEAEA;
+  border-radius: 30px;
+  background-color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-selector:checked + label {
+  color: white !important;
+  background-color: #48ADA9;
+}
+
+.category-selector + label i {
+  position: absolute;
+  top: 10px; /* Adjust as necessary */
+  left: 10px; /* Adjust as necessary */
+}
+.category-selector:checked + label {
+  color: white !important;
+}
+
+legend{
+  float: none !important;
+}
+.position-flag {
+  position: absolute;
+  top: 42px;
+}
+.hidden {
+  display: none;
 }

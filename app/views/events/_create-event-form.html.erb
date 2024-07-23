@@ -1,14 +1,35 @@
 <div class="container">
-  <h1> Créer un évenement </h1>
-  <%= simple_form_for [@pet, Event.new] do |f| %>
-  <%= f.input :title, placeholder: "Type d'évènement", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-font-awesome fa-lg" style="color: #48ADA9;"></i>').html_safe %>
-  <%= f.input :treatment_type, placeholder: "Type de traitement", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-syringe fa-lg" style="color: #48ADA9;"></i>').html_safe %>
-  <%= f.input :start, label: "Début", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-circle-play fa-lg" style="color: #48ADA9;"></i>').html_safe %>
-  <%= f.input :end, label: "Fin", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-circle-stop fa-lg" style="color: #48ADA9;"></i>').html_safe %>
-  <%= f.input :recurrence, placeholder: "Récurrence", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-arrow-rotate-right fa-lg" style="color: #48ADA9;"></i>').html_safe %>
-  <%= f.input :details, placeholder: "Détails", :input_html => { :class => 'form-input' }, label: ('<i class="fa-solid fa-circle-info fa-lg" style="color: #48ADA9;"></i>').html_safe %>
-  <div class="button-center">
-    <%= f.button :submit, "Enregistrer", class: 'green-basic-btn' %>
-  </div>
+  <h1>Créer un évenement</h1>
+  <%= simple_form_for [@pet, Event.new], data: { controller: "toggle-for-form", toggle_for_form_show_if_value: "Traitement", toggle_for_form_show_recurrence_if_value: "Loisir" } do |f| %>
+    <div data-toggle-for-form-target="category">
+      <%= f.input :category,
+                as: :radio_buttons,
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'category-wrapper',
+                item_wrapper_class: 'category-item',
+                input_html: { class: 'category-selector', data: { action: 'change->toggle-for-form#toggleField' } },
+                collection: ["Rendez-vous", "Traitement", "Loisir"],
+                label_wrapper_tag: 'div',
+                label_wrapper_class: 'label-wrapper',
+                label: ('<i class="fa-solid fa-font-awesome fa-lg position-flag" style="color: #48ADA9;"></i>').html_safe %>
+    </div>
+
+    <div data-toggle-for-form-target="treatmentInput" class="hidden">
+      <%= f.input :treatment_type, placeholder: "Type de traitement", input_html: { class: 'form-input' }, label: ('<i class="fa-solid fa-syringe fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+    </div>
+
+    <div data-toggle-for-form-target="recurrenceInput" class="hidden">
+      <%= f.input :recurrence, placeholder: "Récurrence", input_html: { class: 'form-input' }, label: ('<i class="fa-solid fa-arrow-rotate-right fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+    </div>
+
+    <%= f.input :start, as: :string, input_html: { data: { controller: "datepicker" } }, label: ('<i class="fa-solid fa-circle-play fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+
+    <%= f.input :end, as: :string, input_html: { data: { controller: "datepicker" } }, label: ('<i class="fa-solid fa-circle-stop fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+
+    <%= f.input :details, placeholder: "Détails", input_html: { class: 'form-input' }, label: ('<i class="fa-solid fa-circle-info fa-lg" style="color: #48ADA9;"></i>').html_safe %>
+
+    <div class="button-center">
+      <%= f.button :submit, "Enregistrer", class: 'green-basic-btn' %>
+    </div>
   <% end %>
 </div>

@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+
   def index
     @pets = current_user.pets
     @upcoming_events = current_user.events.where("start <= ?", Date.today + 3 )
@@ -12,18 +13,23 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    @step = params[:step].to_i
+    unless params[:pet].nil?
+      @pet = Pet.new(pet_params)
+    end
   end
 
   def create
     @pet = Pet.new(pet_params)
     @user_pet = UserPet.new(user: current_user, pet: @pet)
-    if @pet.save! && @user_pet.save!
-      redirect_to pets_path, notice: "Le compagnon a été ajouté avec succès."
+
+    if @pet.save && @user_pet.save
+      redirect_to pets_path
     else
-      render :new, status: :unprocessable_entity
+      redirect_to new_pet_path({ pet: pet_params }.merge(step: params[:step].to_i + 1))
     end
   end
-
+  
   def edit
     @pet = Pet.find(params[:id])
   end
