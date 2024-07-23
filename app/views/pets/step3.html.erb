@@ -1,9 +1,0 @@
-<div class="container">
-  <%= simple_form_for @pet, url: step3_pet_path(@pet), method: :patch do |f| %>
-<div class="form-step">
-      <%= f.input :birth_date, as: :date, start_year: Date.today.year - 20, end_year: Date.today.year, label: ('<i class="fa-solid fa-lg fa-cake-candles" style="color: #48ADA9;"></i>').html_safe, input_html: { class: 'form-input' } %>
-      <%= f.button :submit, "Next", class: 'green-basic-btn' %>
-      <%= f.input :weight, placeholder: "Poids", label: ('<i class="fa-solid fa-weight-hanging fa-lg" style="color: #48ADA9;"></i>').html_safe, input_html: { class: 'form-input' } %>
-      <%= f.button :submit, "Next", class: 'green-basic-btn' %>
-    </div>
-</div>

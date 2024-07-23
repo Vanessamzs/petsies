@@ -27,3 +27,9 @@ $border-radius-xxl:           1rem;
 
 // Override other variables below!
 $offcanvas-vertical-height:  80vh;
+
+
+$progress-bar-color:  #48ADA9;
+.progress-bar {
+  background-color: $progress-bar-color !important;
+}
