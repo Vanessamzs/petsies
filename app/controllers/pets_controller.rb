@@ -24,7 +24,7 @@ class PetsController < ApplicationController
     @user_pet = UserPet.new(user: current_user, pet: @pet)
 
     if @pet.save && @user_pet.save
-      redirect_to pets_path
+      redirect_to pets_path, notice: 'Le compagnon a été créé avec succès'
     else
       redirect_to new_pet_path({ pet: pet_params }.merge(step: params[:step].to_i + 1))
     end
