@@ -1,15 +1,17 @@
 <%= render "shared/footer" %>
-<ul>
-  <% @upcoming_events.each do |event| %>
-    <% if Date.today == event.start %>
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        Attention, n'oubliez pas votre évènement ce jour pour <strong><%= event.pet.name %></strong> : <%= link_to event.title, pet_event_path(event.pet, event) %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-        </button>
-      </div>
+<div class="container">
+  <ul>
+    <% @upcoming_events.each do |event| %>
+      <% if Date.today == event.start %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          Attention, n'oubliez pas votre évènement ce jour pour <strong><%= event.pet.name %></strong> : <%= link_to event.title, pet_event_path(event.pet, event) %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          </button>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>
 
 <div class="my-pets-container">
   <%= render "shared/mini_card" %>
