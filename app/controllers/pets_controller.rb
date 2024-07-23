@@ -2,12 +2,12 @@ class PetsController < ApplicationController
 
   def index
     @pets = current_user.pets
-    @upcoming_events = current_user.events.where("start <= ?", Date.today + 3 )
+    @upcoming_events = current_user.events.where("start <= ?", Date.today + 3).where("start >= ?", Date.today).order(start: :asc)
   end
-
+  
   def show
     @pet = Pet.find(params[:id])
-    @upcoming_events = @pet.events.where("start <= ?", Date.today + 3 ).order(start: :asc)
+    @upcoming_events = current_user.events.where("start <= ?", Date.today + 3).where("start >= ?", Date.today).order(start: :asc)
     @events = @pet.events
   end
 
@@ -22,7 +22,6 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     @user_pet = UserPet.new(user: current_user, pet: @pet)
-
     if @pet.save && @user_pet.save
       redirect_to pets_path, notice: 'Le compagnon a été créé avec succès'
     else
