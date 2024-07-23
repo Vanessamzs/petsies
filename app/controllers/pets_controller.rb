@@ -1,13 +1,12 @@
 class PetsController < ApplicationController
+  before_action :upcoming_events
 
   def index
     @pets = current_user.pets
-    @upcoming_events = current_user.events.where("start <= ?", Date.today + 3).where("start >= ?", Date.today).order(start: :asc)
   end
   
   def show
     @pet = Pet.find(params[:id])
-    @upcoming_events = current_user.events.where("start <= ?", Date.today + 3).where("start >= ?", Date.today).order(start: :asc)
     @events = @pet.events
   end
 
@@ -52,5 +51,9 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(:name, :breed, :animal_type, :birth_date, :weight, :description, :photo)
+  end
+
+  def upcoming_events
+    @upcoming_events = current_user.events.where("start <= ?", Date.today + 3).where("start >= ?", Date.today).order(start: :asc)
   end
 end
