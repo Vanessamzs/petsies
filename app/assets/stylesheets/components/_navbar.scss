@@ -45,15 +45,6 @@
   list-style: none;
 }
 
-.notifications ul li{
-  padding: 10px;
-  border-bottom: 1px solid #FFFBF4;
-}
-
-.notifications ul li:last-child{
-  border-bottom: none;
-}
-
 .show-notifications{
   height: fit-content;
   background-color: #36827F;
@@ -71,4 +62,48 @@
 
 .swal2-container {
   z-index: 10000 !important;
+}
+
+#offcanvasNotifications{
+  background-color: #36827F;
+  color: #FFFBF4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+.notifications-list li{
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  border-bottom: 1px solid #fffbf46c !important;
+  text-overflow: ellipsis !important;
+}
+
+.notifications-list li:last-child{
+  border-bottom: none !important;
+}
+
+.notifications-list li:first-child{
+  margin-top: 20px;
+}
+
+.notifications-number-alert{
+  background-color: #E6614C;
+  color: #FFFBF4;
+  // padding: 5px;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  font-size: .6em;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 48px !important;
+}
+
+.hide-notifications{
+  display: none !important;
 }
