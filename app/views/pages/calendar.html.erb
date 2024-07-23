@@ -4,4 +4,29 @@
 <div data-controller="fullcalendar"
     data-fullcalendar-event-value='<%= @events.to_json %>'>
 </div>
+
+<div class="container mt-4 w-100 p-0 m-0">
+    <% @events.each do |event| %>
+        <div class="modal fade" id="<%= event.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel"><%= event.title %></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <%= event.details %>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="border: none">
+                            <%= link_to pet_event_path(event.pet, event), data: { turbo_method: :delete } do %>
+                                <i class="fa-solid fa-trash fa-lg" style="color: #48ADA9;"></i>
+                            <% end %>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
 <%= render "shared/footer" %>

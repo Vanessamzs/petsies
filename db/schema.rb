@@ -51,8 +51,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_22_123208) do
     t.datetime "updated_at", null: false
     t.date "start"
     t.date "end"
-    t.string "title"
     t.string "recurrence"
+    t.string "title"
     t.string "category"
     t.index ["pet_id"], name: "index_events_on_pet_id"
   end
