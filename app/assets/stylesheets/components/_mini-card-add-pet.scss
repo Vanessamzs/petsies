@@ -1,0 +1,25 @@
+.grid-container {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  padding: 10px;
+  a{
+    text-decoration: none;
+  }
+  .grid-item-add-pet{
+    background: rgba(211, 211, 211, 0.199);
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #ffffff, #e6e2dc);
+    box-shadow: inset 0px 0px 28px 0px rgba(0,0,0,0.1);
+    box-shadow:  9px 9px 11px #d4d0cb,
+                -9px -9px 11px #ffffff;
+    /*box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.3);*/
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+}
