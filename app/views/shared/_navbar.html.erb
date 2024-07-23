@@ -2,38 +2,39 @@
     <div class="petsies-navbar">
 
         <%= image_tag "logo-white.png", class: "navbar-logo" %>
+        <% if current_user != nil %>
+          <div data-action="click->navbar-notifications#toggle" data-navbar-notifications-target="toggleButton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotifications" aria-controls="offcanvasTop">
+            <i class="fa-solid fa-bell fa-xl fa-rotate-by" style="color: #fffbf4; --fa-rotate-angle: 25deg;"></i>
+          </div>
+          <% if @upcoming_events.count > 0 %>
+            <div class="notifications-number-alert" data-action="click->navbar-notifications#toggle" data-navbar-notifications-target="toggleNumberButton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotifications" aria-controls="offcanvasTop"><span><%= @upcoming_events.count %></span></div>
+          <% elsif @upcoming_events.count < 0 %>
+            <div class="notifications-number-alert hide-notifications"></div>
+          <% end %>
 
-        <div data-action="click->navbar-notifications#toggle" data-navbar-notifications-target="toggleButton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotifications" aria-controls="offcanvasTop">
-          <i class="fa-solid fa-bell fa-xl fa-rotate-by" style="color: #fffbf4; --fa-rotate-angle: 25deg;"></i>
-        </div>
-        <% if @upcoming_events.count > 0%>
-          <div class="notifications-number-alert" data-action="click->navbar-notifications#toggle" data-navbar-notifications-target="toggleNumberButton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotifications" aria-controls="offcanvasTop"><span><%= @upcoming_events.count %></span></div>
-        <% elsif @upcoming_events.count < 0 %>
-          <div class="notifications-number-alert hide-notifications"></div>
-        <% end %>
+    </div>
+        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasNotifications" aria-labelledby="offcanvasTopLabel">
+          <div class="offcanvas-header">
+              <h5 id="offcanvasTopLabel">Offcanvas top</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
 
-  </div>
-      <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasNotifications" aria-labelledby="offcanvasTopLabel">
-        <div class="offcanvas-header">
-            <h5 id="offcanvasTopLabel">Offcanvas top</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-
-          <ul style="list-style:none;" class="notifications-list">
-            <% if @upcoming_events%>
-              <% @upcoming_events.each do |event| %>
-                <% if Date.today == event.start || Date.today > (event.start - 4) || Date.today < (event.start + 1) %>
-                  <li>
-                    <i class="fa-solid fa-lg fa-circle-exclamation" style="color: #FFFBF4;"></i> &nbsp; <strong><%= link_to event.title, pet_event_path(event.pet, event), style: "text-decoration:none; color:#FFFBF4" %></strong> pour <strong><%= event.pet.name %></strong> le <strong><%= event.start.to_s.gsub('-', '/') %></strong>
-                  </li>
+            <ul style="list-style:none;" class="notifications-list">
+              <% if @upcoming_events%>
+                <% @upcoming_events.each do |event| %>
+                  <% if Date.today == event.start || Date.today > (event.start - 4) || Date.today < (event.start + 1) %>
+                    <li>
+                      <i class="fa-solid fa-lg fa-circle-exclamation" style="color: #FFFBF4;"></i> &nbsp; <strong><%= link_to event.title, pet_event_path(event.pet, event), style: "text-decoration:none; color:#FFFBF4" %></strong> pour <strong><%= event.pet.name %></strong> le <strong><%= event.start.to_s.gsub('-', '/') %></strong>
+                    </li>
+                  <% end %>
                 <% end %>
+              <% else %>
+                <li class="notifications-list">Aucun évènement à venir pour <%= @pet.name %></li>
               <% end %>
-            <% else %>
-              <li class="notifications-list">Aucun évènement à venir pour <%= @pet.name %></li>
-            <% end %>
-          </ul>
+            </ul>
 
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
