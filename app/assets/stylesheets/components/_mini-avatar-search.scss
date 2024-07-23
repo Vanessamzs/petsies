@@ -1,0 +1,27 @@
+.grid-container-search {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 10px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .grid-avatar-search {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    border-radius: 50%;
+
+    .mini-avatar-search {
+      width: 90px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      align-items: center;
+    }
+  }
+}

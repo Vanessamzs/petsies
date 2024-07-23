@@ -29,7 +29,7 @@ class PetsController < ApplicationController
       redirect_to new_pet_path({ pet: pet_params }.merge(step: params[:step].to_i + 1))
     end
   end
-  
+
   def edit
     @pet = Pet.find(params[:id])
   end
