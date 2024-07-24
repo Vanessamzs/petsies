@@ -17,4 +17,4 @@ pin "@fullcalendar/list", to: "https://cdn.skypack.dev/@fullcalendar/list@6.1.15
 pin "flatpickr" # @4.6.13
 pin "sweetalert2" # @11.12.3
 pin "@fullcalendar/interaction", to: "https://cdn.skypack.dev/@fullcalendar/interaction@6.1.15"
-
+pin "flatpickr/dist/l10n/fr.js", to: "flatpickr--dist--l10n--fr.js.js" # @4.6.13

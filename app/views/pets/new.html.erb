@@ -42,7 +42,9 @@
 </div>
     <h3 class="questions">La date de naissance et le poids de <%= @pet.name %>?</h3>
       <% end %>
-      <%= f.input :birth_date, as: :date, html5: true, start_year: Date.today.year - 20, end_year: Date.today.year, label: ('<i class="fa-solid fa-lg fa-cake-candles" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input " }, wrapper_html: {class: "#{"hidden" unless @step == 3 }"} %>
+      <div data-controller='flatpickr'>
+        <%= f.input :birth_date, input_html: { data: { controller: "flatpickr" } }, as: :string, start_year: Date.today.year - 20, end_year: Date.today.year, label: ('<i class="fa-solid fa-lg fa-cake-candles" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input " }, wrapper_html: {class: "#{"hidden" unless @step == 3 }"} %>
+      </div>
       <%= f.input :weight, placeholder: "Poids", label: ('<i class="fa-solid fa-weight-hanging fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input " }, wrapper_html: {class: "#{"hidden" unless @step == 3 }" } %>
       <% if @step == 4 %>
       <div class="progress">
