@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   gap: 30px;
   padding: 10px;
+  justify-content: center;
 
   a {
     text-decoration: none;
@@ -14,6 +15,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 15px;
     border-radius: 50%;
 
@@ -22,6 +24,7 @@
       aspect-ratio: 1/1;
       border-radius: 50%;
       align-items: center;
+      object-fit: cover;
     }
   }
 }
