@@ -65,7 +65,7 @@
   justify-content: center;
 }
 
-.optional{
+.pet_photo{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,4 +204,47 @@ legend{
 }
 .hidden {
   display: none;
+}
+
+select{
+  border: 1px solid #48ADA9 !important;
+}
+
+.form-check-label{
+  color: #48ADA9 !important;
+}
+
+// .form-check-label:checked + label {
+//   background-color: #48ADA9 !important;
+//   color: #FFFBF4 !important;
+// }
+
+input[type="radio"]:checked+label {
+  background-color: #48ADA9 !important;
+  color: #FFFBF4 !important;
+}
+
+.is-valid{
+  border: 1px solid #48ADA9 !important;
+}
+
+.form-control{
+  border-radius: 12px !important;
+  background-color: #F1F9F9;
+}
+
+.form-check{
+  padding: 0px !important;
+}
+
+.was-validated .form-control:valid, .form-control.is-valid {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2348ADA9' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+}
+
+.was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select[size="1"]:valid:not([multiple]), .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid[size="1"]:not([multiple]) {
+	--bs-form-select-bg-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2348ADA9' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+}
+
+.pet_birth_date{
+  display: flex;
 }
