@@ -4,7 +4,7 @@ class PetsController < ApplicationController
   def index
     @pets = current_user.pets
   end
-  
+
   def show
     @pet = Pet.find(params[:id])
     @events = @pet.events
@@ -24,6 +24,9 @@ class PetsController < ApplicationController
     if @pet.save && @user_pet.save
       redirect_to pets_path, notice: 'Le compagnon a été créé avec succès'
     else
+      # 1 j'assigne dans une variable step la valeur de la step
+      @step = define_step(@pet.errors.messages)
+      # 2 je renvoie cette valeur dans les paramètres que je retourne
       redirect_to new_pet_path({ pet: pet_params }.merge(step: params[:step].to_i + 1))
     end
   end
@@ -55,5 +58,11 @@ class PetsController < ApplicationController
 
   def upcoming_events
     @upcoming_events = current_user.events.where("start <= ?", Date.today + 3).where("start >= ?", Date.today).order(start: :asc)
+  end
+
+  def define_step(errors)
+    #errors contient :name ?
+    #si oui = 0
+    if
   end
 end
