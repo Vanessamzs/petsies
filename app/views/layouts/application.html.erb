@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Petsies</title>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,27 +20,34 @@
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <%= favicon_link_tag asset_path('fav.ico') %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <%= favicon_link_tag 'favicon.ico' %>
+    <link rel="apple-touch-icon" sizes="57x57" href="<%= asset_path('apple-icon-57x57.png') %>">
+    <link rel="apple-touch-icon" sizes="60x60" href="<%= asset_path('apple-icon-60x60.png') %>">
+    <link rel="apple-touch-icon" sizes="72x72" href="<%= asset_path('apple-icon-72x72.png') %>">
+    <link rel="apple-touch-icon" sizes="76x76" href="<%= asset_path('apple-icon-76x76.png') %>">
+    <link rel="apple-touch-icon" sizes="114x114" href="<%= asset_path('apple-icon-114x114.png') %>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<%= asset_path('apple-icon-120x120.png') %>">
+    <link rel="apple-touch-icon" sizes="144x144" href="<%= asset_path('apple-icon-144x144.png') %>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<%= asset_path('apple-icon-152x152.png') %>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('apple-icon-180x180.png') %>">
+    <link rel="icon" type="image/png" sizes="192x192" href="<%= asset_path('android-icon-192x192.png') %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_path('favicon-32x32.png') %>">
+    <link rel="icon" type="image/png" sizes="96x96" href="<%= asset_path('favicon-96x96.png') %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path('favicon-16x16.png') %>">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
   </head>
-
   <body class="body-container <%= 'full-page' if controller_name == 'pages' && action_name == 'home' %>">
-
-  <%= render "shared/flashes" %>
-  <%# <%= render "shared/navbar" %>
-
-  <%# /!\ À déplacer dans la page profil /!\ %>
-  <% unless controller_name == "pages" %>
+    <%= render "shared/flashes" %>
+    <% unless controller_name == "pages" %>
       <%= render 'shared/navbar' %>
     <% end %>
-
     <%= yield %>
-
     <% unless controller_name == "pages" %>
       <%= render 'shared/footer' %>
     <% end %>
-
   </body>
-
-    <%# <%= render "shared/footer" %>
 </html>
