@@ -209,3 +209,29 @@ legend{
 select{
   border: 1px solid #48ADA9 !important;
 }
+
+.form-check-label{
+  color: #48ADA9 !important;
+}
+
+// .form-check-label:checked + label {
+//   background-color: #48ADA9 !important;
+//   color: #FFFBF4 !important;
+// }
+
+input[type="radio"]:checked+label {
+  background-color: #48ADA9 !important;
+  color: #FFFBF4 !important;
+}
+
+.is-valid{
+  border: 1px solid #48ADA9 !important;
+}
+
+.form-control{
+  border-radius: 12px !important;
+}
+
+.form-check{
+  padding: 0px !important;
+}
