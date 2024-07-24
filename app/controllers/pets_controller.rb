@@ -44,7 +44,10 @@ class PetsController < ApplicationController
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
-    redirect_to pets_path, status: :see_other, notice: 'Le compagnon a été retiré'
+    respond_to do |format|
+      format.html { redirect_to pets_path, status: :see_other, notice: 'Le compagnon a été retiré' }
+      format.text { "ok" }
+    end
   end
 
   private

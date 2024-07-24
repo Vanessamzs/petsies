@@ -71,10 +71,10 @@ export default class extends Controller {
         //   );
         // },
 
-        dateClick: function(info) {
-          alert('Date: ' + info.dateStr);
-          alert('Resource ID: ' + info.resource.id);
-        }
+        // dateClick: function(info) {
+        //   alert('Date: ' + info.dateStr);
+        //   alert('Resource ID: ' + info.resource.id);
+        // }
 
       });
       calendar.render();
