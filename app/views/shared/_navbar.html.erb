@@ -7,10 +7,10 @@
           <div data-action="click->navbar-notifications#toggle" data-navbar-notifications-target="toggleButton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotifications" aria-controls="offcanvasTop">
             <i class="fa-solid fa-bell fa-xl fa-rotate-by" style="color: #fffbf4; --fa-rotate-angle: 25deg;"></i>
           </div>
-          <% if @upcoming_events.count > 0 %>
-            <div class="notifications-number-alert" data-action="click->navbar-notifications#toggle" data-navbar-notifications-target="toggleNumberButton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotifications" aria-controls="offcanvasTop"><span><%= @upcoming_events.count %></span></div>
-          <% elsif @upcoming_events.count < 0 %>
+          <% if @upcoming_events.nil? %>
             <div class="notifications-number-alert hide-notifications"></div>
+          <% else %>
+            <div class="notifications-number-alert" data-action="click->navbar-notifications#toggle" data-navbar-notifications-target="toggleNumberButton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotifications" aria-controls="offcanvasTop"><span><%= @upcoming_events.count %></span></div>
           <% end %>
 
     </div>
