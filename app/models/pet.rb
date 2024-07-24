@@ -10,6 +10,7 @@ class Pet < ApplicationRecord
 
   validates :name, presence: true
   validates :breed, presence: true
+  validates :birth_date, presence: true
   validates :weight, presence: true
   validates :description, presence: true, length: { maximum: 150 }
   validates :animal_type, presence: true, inclusion: { in: SPECIES}

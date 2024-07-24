@@ -18,9 +18,9 @@
       <%= f.input :treatment_type, placeholder: "Type de traitement", input_html: { class: 'form-input' }, label: ('<i class="fa-solid fa-syringe fa-lg" style="color: #48ADA9;"></i>').html_safe %>
     </div>
 
-    <div data-toggle-for-form-target="recurrenceInput" class="hidden">
+    <%# <div data-toggle-for-form-target="recurrenceInput" class="hidden">
       <%= f.input :recurrence, placeholder: "Récurrence", input_html: { class: 'form-input' }, label: ('<i class="fa-solid fa-arrow-rotate-right fa-lg" style="color: #48ADA9;"></i>').html_safe %>
-    </div>
+      <%# </div> %> 
 
     <%= f.input :start, as: :string, input_html: { data: { controller: "datepicker" } }, label: ('<i class="fa-solid fa-circle-play fa-lg" style="color: #48ADA9;"></i>').html_safe %>
 
