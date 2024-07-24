@@ -42,8 +42,9 @@
     <!-- Boutons action pour agir sur mes animaux-->
   <div class="pet-actions-display-controller" data-controller="pet-action-display">
     <div class="pet-actions">
-
-      <%= link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #48ADA9;"></i>'), pet_path(@pet.id), data: { turbo_method: :delete, turbo_confirm: "Êtes vous sûr(e)?" } %>
+      <div data-controller="sweetalert" data-action="click->sweetalert#delete" data-sweetalert-target="pet" data-sweetalert-id-value="<%=@pet.id%>">
+        <%= link_to raw('<i class="fa-solid fa-eraser fa-xl" style="color: #48ADA9;"></i>'), pet_path(@pet.id) %>
+      </div>
       <i class="fa-solid fa-notes-medical fa-xl" style="color: #48ADA9;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvents" aria-controls="offcanvasBottom"></i>
       <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasEvents">
         <div class="offcanvas-body">
