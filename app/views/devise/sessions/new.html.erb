@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Log in</h1>
+  <h1>S'identifier</h1>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
@@ -10,7 +10,7 @@
                   input_html: { autocomplete: "email" }, :input_html => { :class => 'form-input' },
                   label: ('<i class="fa-solid fa-at fa-lg" style="color: #48ADA9;"></i>').html_safe %>
       <%= f.input :password,
-                  placeholder: "Password",
+                  placeholder: "Mot de passe",
                   required: false,
                   input_html: { autocomplete: "current-password" }, :input_html => { :class => 'form-input' },
                   label: ('<i class="fa-solid fa-key fa-lg" style="color: #48ADA9;"></i>').html_safe %>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="form-actions button-center">
-      <%= f.button :submit, "Log in", class: "green-basic-btn" %>
+      <%= f.button :submit, "S'identifier", class: "green-basic-btn" %>
     </div>
 
   <% end %>
