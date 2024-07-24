@@ -15,10 +15,10 @@ export default class extends Controller {
     const selectedValue = this.titleTarget.querySelector('input:checked')?.value;
     if (selectedValue === this.showIfValue) {
       this.treatmentInputTarget.classList.remove('hidden');
-      this.recurrenceInputTarget.classList.remove('hidden');
+      // this.recurrenceInputTarget.classList.remove('hidden');
     } else {
       this.treatmentInputTarget.classList.add('hidden');
-      this.recurrenceInputTarget.classList.add('hidden');
+      // this.recurrenceInputTarget.classList.add('hidden');
     }
   }
 
