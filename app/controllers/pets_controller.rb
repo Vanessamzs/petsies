@@ -25,9 +25,9 @@ class PetsController < ApplicationController
       redirect_to pets_path, notice: 'Le compagnon a été créé avec succès'
     else
       # 1 j'assigne dans une variable step la valeur de la step
-      @step = define_step(@pet.errors.messages)
+      step = define_step(@pet.errors.messages)
       # 2 je renvoie cette valeur dans les paramètres que je retourne
-      redirect_to new_pet_path({ pet: pet_params }.merge(step: params[:step].to_i + 1))
+      redirect_to new_pet_path({ pet: pet_params }.merge(step: step))
     end
   end
 
@@ -61,8 +61,16 @@ class PetsController < ApplicationController
   end
 
   def define_step(errors)
-    #errors contient :name ?
-    #si oui = 0
-    if
+    if errors.key?(:name)
+      return 0
+    elsif errors.key?(:animal_type)
+      return 1
+    elsif errors.key?(:breed)
+      return 2
+    elsif errors.key?(:birth_date) || errors.key?(:weight)
+      return 3
+    elsif errors.key?(:description)
+      return 4
+    end
   end
 end
