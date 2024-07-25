@@ -40,14 +40,15 @@ export default class extends Controller {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
+      cancelButtonText: "Non, annuler !",
       confirmButtonText: "Oui, supprimer !"
     }).then((result) => {
       if (result.isConfirmed) {
         const url = `/pets/${this.idValue}`
-        
+
         fetch(url, {
           method: "DELETE",
-          headers: { 
+          headers: {
             "Accept": "text/plain",
             "X-CSRF-Token": document.querySelector("meta[name=csrf-token]").content
            }

@@ -20,3 +20,41 @@
   color: #5c320e;
   background-color: #E6614C !important;
 }
+
+//sweet alert
+.swal2-confirm{
+  background-color: #48ADA9 !important;
+  border-radius: 25px !important;
+}
+
+.swal2-cancel{
+  background-color: #E6614C !important;
+  border-radius: 25px !important;
+}
+
+.swal2-icon{
+  color: #F9DB6D !important;
+  border: 4px solid #F9DB6D !important;
+}
+
+.swal2-popup{
+  border-radius: 11px !important;
+  color: #060D0E !important;
+  background-color: #FFFBF4 !important;
+}
+
+.swal2-success-ring{
+  color: #48ADA9 !important;
+  border: 4px solid #48ADA9 !important;
+}
+
+.swal2-success-line-tip{
+  color: #48ADA9 !important;
+  background-color: #48ADA9 !important;
+}
+
+.swal2-success-line-long{
+  color: #48ADA9 !important;
+  background-color: #48ADA9 !important;
+
+}
