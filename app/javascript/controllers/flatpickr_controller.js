@@ -8,7 +8,7 @@ export default class extends Controller {
     console.log("Flatpickr controller connected!");
     console.log("Initializing flatpickr on:", this.element);
     flatpickr(this.element, {
-      enableTime: true,
+      enableTime: false,
       dateFormat: "Y-m-d",
       disableMobile: "true",
       "locale": French

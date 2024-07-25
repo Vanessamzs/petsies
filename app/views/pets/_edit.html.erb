@@ -4,9 +4,8 @@
     <%= f.input :name, placeholder: "Nom", label: ('<i class="fa-solid fa-medal fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => 'form-input' } %>
     <%= f.input :animal_type, as: :radio_buttons, collection: Pet::SPECIES, label: " Type de compagnon ", input_html: { class: "tag-selector " } %>
     <%= f.input :breed, placeholder: "Race", label: ('<i class="fa-solid fa-shield-cat fa-lg" style="color: #48ADA9;"></i>').html_safe%>
-    <div data-controller='flatpickr'>
-      <%= f.input :birth_date, as: :string, input_html: { data: { controller: "flatpickr" } }, start_year: Date.today.year - 20, end_year: Date.today.year, label: ('<i class="fa-solid fa-lg fa-cake-candles" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input " }%>
-    </div>
+      <%= f.input :birth_date, as: :string, input_html: { data: { controller: "flatpickr" }, class: "form-input" }, start_year: Date.today.year - 20, end_year: Date.today.year, label: ('<i class="fa-solid fa-lg fa-cake-candles" style="color: #48ADA9;"></i>').html_safe %>
+
     <%= f.input :weight, placeholder: "Poids", label: ('<i class="fa-solid fa-weight-hanging fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input " }%>
     <%= f.input :description, placeholder: "Description", label: ('<i class="fa-solid fa-file-signature fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input" }%>
     <%= f.input :photo, as: :file, label: ('<i class="fa-solid fa-image fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input" } %>
