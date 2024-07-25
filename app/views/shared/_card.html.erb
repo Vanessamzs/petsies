@@ -6,37 +6,63 @@
   <% end %>
 
 
-  <h2><%= @pet.name %></h2>
-  <div class="pet-infos-container">
-    <p><i class="fa-solid fa-weight-hanging" style="color: #060d0e;"></i> <%= @pet.weight %>kg</p>
-    <p><i class="fa-solid fa-cake-candles" style="color: #060d0e;"></i> <%= @pet.age %></p>
-    <p>
+  <h2><strong><%= @pet.name %></strong></h2>
+
+  <div class="container">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="pet-infos-container">
+        <i class="fa-solid fa-weight-hanging fa-2xl" style="color: #48ADA9;"></i> <%= @pet.weight %>kg
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="pet-infos-container">
+        <i class="fa-solid fa-cake-candles fa-2xl" style="color: #48ADA9;"></i> <%= @pet.age %>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="pet-infos-container">
+
       <% if @pet.animal_type == "Chat" %>
-        <i class="fa-solid fa-cat" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-cat fa-2xl" style="color: #48ADA9;"></i>
       <% elsif @pet.animal_type == "Chien" %>
-        <i class="fa-solid fa-dog" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-dog fa-2xl" style="color: #48ADA9;"></i>
       <% elsif @pet.animal_type == "Oiseau" %>
-        <i class="fa-solid fa-crow" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-crow fa-2xl" style="color: #48ADA9;"></i>
       <% elsif @pet.animal_type == "Cheval" %>
-        <i class="fa-solid fa-horse" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-horse fa-2xl" style="color: #48ADA9;"></i>
       <% elsif @pet.animal_type == "Poisson" %>
-        <i class="fa-solid fa-fish" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-fish fa-2xl" style="color: #48ADA9;"></i>
       <% elsif @pet.animal_type == "Grenouille" %>
-        <i class="fa-solid fa-frog" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-frog fa-2xl" style="color: #48ADA9;"></i>
       <% elsif @pet.animal_type == "Araignée" %>
-        <i class="fa-solid fa-spider" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-spider fa-2xl" style="color: #48ADA9;"></i>
       <% elsif @pet.animal_type == "Serpent" %>
-        <i class="fa-solid fa-worm" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-worm fa-2xl" style="color: #48ADA9;"></i>
       <% elsif @pet.animal_type == "Insecte" %>
-        <i class="fa-solid fa-locust" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-locust fa-2xl" style="color: #48ADA9;"></i>
       <% elsif @pet.animal_type == "Dragon" %>
-        <i class="fa-solid fa-dragon" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-dragon fa-2xl" style="color: #48ADA9;"></i>
       <% else %>
-        <i class="fa-solid fa-shrimp" style="color: #060d0e;"></i>
+        <i class="fa-solid fa-shrimp fa-2xl" style="color: #48ADA9;"></i>
       <% end %>
       <%= @pet.breed %>
-    </p>
+
+      </div>
+    </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon colorize-carousel-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon colorize-carousel-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  </div>
+
   <p><%= @pet.description %></p>
 
     <!-- Boutons action pour agir sur mes animaux-->

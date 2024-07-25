@@ -2,59 +2,69 @@
 <div class="container form-progression-container" data-controller="form">
 
   <%= simple_form_for @pet, url: pets_path(@pet, step: params[:step]) do |f| %>
-    <% if @step == 0 %>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="follow">
-        <p>étape 1/5</p>
-      </div>
-      <h1>Créer un nouveau compagnon</h1>
-      <h3 class="questions">Quel est son nom?</h3>
-    <% end %>
-    <%= f.input :name, placeholder: "Nom", label: ('<i class="fa-solid fa-medal fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input", data: { form_target: "input", action: "change->form#activateButton" }}, wrapper_html: {class: "#{"hidden" unless @step == 0 }"} %>
-    <% if @step == 1 %>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped" role="progressbar bg-success" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="follow">
-        <p>étape 2/5</p>
-      </div>
-      <h3 class="questions">Bienvenue ! Quel animal est <%= @pet.name %> ?</h3>
-    <% end %>
-    <%= f.input :animal_type, as: :radio_buttons, collection: Pet::SPECIES, label: " Type de compagnon " ,input_html: { class: "tag-selector", data: { form_target: "input", action: "change->form#activateButton" } }, item_wrapper_class: 'tag-item', wrapper_html: {class: "#{"hidden" unless @step == 1 }"} %>
-    <% if @step == 2 %>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="follow">
-        <p>étape 3/5</p>
-      </div>
-      <h3 class="questions">Oh !! Un petit <%= @pet.animal_type %> ! Et de quel race ?</h3>
-    <% end %>
-    <%= f.input :breed, placeholder: "Race", label: ('<i class="fa-solid fa-shield-cat fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input", data: { form_target: "input", action: "change->form#activateButton" } }, wrapper_html: {class: "#{"hidden" unless @step == 2 }"} %>
-    <% if @step == 3 %>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="follow">
-        <p>étape 4/5</p>
-      </div>
-      <h3 class="questions">La date de naissance et le poids de <%= @pet.name %>?</h3>
-    <% end %>
-    <%= f.input :birth_date, as: :string, input_html: { data: { controller: "flatpickr" }, class: "form-input" }, wrapper_html: { class: "#{"hidden" unless @step == 3}" }, start_year: Date.today.year - 20, end_year: Date.today.year, label: ('<i class="fa-solid fa-lg fa-cake-candles" style="color: #48ADA9;"></i>').html_safe %>
-    <%= f.input :weight, placeholder: "Poids", label: ('<i class="fa-solid fa-weight-hanging fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input ", data: { form_target: "input", action: "change->form#activateButton" } }, wrapper_html: {class: "#{"hidden" unless @step == 3 }" } %>
-    <% if @step == 4 %>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="follow">
-        <p>étape 5/5</p>
-      </div>
-      <h3 class="questions">Peux-tu m'en dire plus sur <%= @pet.name %> et me montrer à quoi il/elle ressemble ?</h3>
-    <% end %>
-    <%= f.input :description, placeholder: "Description", label: ('<i class="fa-solid fa-file-signature fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input", data: { form_target: "input", action: "change->form#activateButton" } }, wrapper_html: {class: "#{"hidden" unless @step == 4 }" } %>
-    <%= f.input :photo, as: :file, label: ('<i class="fa-solid fa-image fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input", data: { form_target: "input", action: "change->form#activateButton" } }, wrapper_html: {class: "#{"hidden" unless @step == 4 }"} %>
+      <% if @step == 0 %>
+  <div class="progress-follow">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="follow">
+      <p>étape 1/5</p>
+    </div>
+  </div>
+    <h1>Créer un nouveau compagnon</h1>
+    <h3 class="questions">Quel est son nom?</h3>
+      <% end %>
+      <%= f.input :name, placeholder: "Nom", label: ('<i class="fa-solid fa-medal fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input", data: { form_target: "input", action: "change->form#activateButton" }}, wrapper_html: {class: "#{"hidden" unless @step == 0 }"} %>
+      <% if @step == 1 %>
+  <div class="progress-follow">
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar bg-success" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="follow">
+      <p>étape 2/5</p>
+    </div>
+  </div>
+    <h3 class="questions">Bienvenue ! Quel animal est <%= @pet.name %> ?</h3>
+      <% end %>
+      <%= f.input :animal_type, as: :radio_buttons, collection: Pet::SPECIES, label: " Type de compagnon " ,input_html: { class: "tag-selector ", data: { form_target: "input", action: "change->form#activateButton" }}, item_wrapper_class: 'tag-item', wrapper_html: {class: "#{"hidden" unless @step == 1 }"} %>
+      <% if @step == 2 %>
+   <div class="progress-follow">
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar bg-success" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="follow">
+      <p>étape 3/5</p>
+    </div>
+  </div>
+    <h3 class="questions">Oh !! Un petit <%= @pet.animal_type %> ! Et de quel race ?</h3>
+      <% end %>
+      <%= f.input :breed, placeholder: "Race", label: ('<i class="fa-solid fa-shield-cat fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input", data: { form_target: "input", action: "change->form#activateButton" }}, wrapper_html: {class: "#{"hidden" unless @step == 2 }"} %>
+      <% if @step == 3 %>
+    <div class="progress-follow">
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar bg-success" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="follow">
+      <p>étape 4/5</p>
+    </div>
+  </div>
+    <h3 class="questions">La date de naissance et le poids de <%= @pet.name %>?</h3>
+      <% end %>
+      <%= f.input :birth_date, as: :string, input_html: { data: { controller: "flatpickr" }, class: "form-input" }, wrapper_html: { class: "#{"hidden" unless @step == 3}" }, start_year: Date.today.year - 20, end_year: Date.today.year, label: ('<i class="fa-solid fa-lg fa-cake-candles" style="color: #48ADA9;"></i>').html_safe %>
+      <%= f.input :weight, placeholder: "Poids", label: ('<i class="fa-solid fa-weight-hanging fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input ", data: { form_target: "input", action: "change->form#activateButton" }}, wrapper_html: {class: "#{"hidden" unless @step == 3 }" } %>
+      <% if @step == 4 %>
+    <div class="progress-follow">
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar bg-success" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="follow">
+      <p>étape 5/5</p>
+    </div>
+  </div>
+    <h3 class="questions">Peux-tu m'en dire plus sur <%= @pet.name %> et me montrer à quoi il/elle ressemble ?</h3>
+      <% end %>
+      <%= f.input :description, placeholder: "Description", label: ('<i class="fa-solid fa-file-signature fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input", data: { form_target: "input", action: "change->form#activateButton" }}, wrapper_html: {class: "#{"hidden" unless @step == 4 }" } %>
+      <%= f.input :photo, as: :file, label: ('<i class="fa-solid fa-image fa-lg" style="color: #48ADA9;"></i>').html_safe, :input_html => { :class => "form-input", data: { form_target: "input", action: "change->form#activateButton" }}, wrapper_html: {class: "#{"hidden" unless @step == 4 }"} %>
     <div class="button-center justify-content-around">
       <%= link_to "< Précédent", new_pet_path(@pet, pet: params.require(:pet).permit(:name, :breed, :animal_type, :birth_date, :weight, :description, :photo), step: @step - 1), class: 'green-basic-btn text-decoration-none form-blue-buttons-adjustment precedent-button' if @step > 0 %>
       <%= f.button :submit, @step == 4 ? "Enregistrer" : "Suivant >", disabled: true, class: 'green-basic-btn form-blue-buttons-adjustment', data: { form_target: "button" } %>
