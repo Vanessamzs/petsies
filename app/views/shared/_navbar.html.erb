@@ -22,7 +22,7 @@
           <div class="offcanvas-body">
 
             <ul style="list-style:none;" class="notifications-list">
-              <% if @upcoming_events.nil? %>
+              <% if @upcoming_events.nil? && @pet%>
                 <li class="notifications-list">Aucun évènement à venir pour <%= @pet.name %></li>
               <% else %>
                 <% @upcoming_events.each do |event| %>
