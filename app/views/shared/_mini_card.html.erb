@@ -7,9 +7,9 @@
       <%= link_to pet_path(pet) do %>
         <div class="grid-item">
           <% if pet.photo.key == nil %>
-            <%= image_tag "lumo.png", class: "mini-avatar" %>
+            <%= image_tag "logo-white.png", class: "mini-avatar" %>
           <% else %>
-            <%= cl_image_tag pet.photo.key, class: "mini-avatar" %>
+            <%= cl_image_tag pet.photo.key || @pet.photo_url, class: "mini-avatar" %>
           <% end %>
           <h3><%= pet.name %></h3>
         </div>
@@ -25,5 +25,5 @@
 
                 </div>
               </div>
- 
+
    </div>
