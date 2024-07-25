@@ -10,14 +10,18 @@
           <%= link_to pet_path(pet) do %>
             <div class="grid-avatar-search">
               <% if pet.photo.key == nil %>
-                <%= image_tag "lumo.png", class: "mini-avatar-search" %>
+               <% if pet.photo_url == nil %>
+                 <%= image_tag "lumo.png", class: "mini-avatar-search" %>
+               <% else %>
+                 <%= image_tag pet.photo_url, class: "mini-avatar-search" %>
+               <% end %>
               <% else %>
-                <%= cl_image_tag pet.photo.key, class: "mini-avatar-search" %>
+               <%= cl_image_tag pet.photo.key, class: "mini-avatar-search" %>
               <% end %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+             </div>
+             <% end %>
+            <% end %>
+         </div>
     </div>
   </div>
   <div class="offcanvas offcanvas-bottom footer-offcanvas-style" tabindex="-1" id="offcanvasFooterProfile" aria-labelledby="offcanvasBottomLabel">
