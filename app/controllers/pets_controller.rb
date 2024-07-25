@@ -38,7 +38,7 @@ class PetsController < ApplicationController
   def update
     @pet = Pet.find(params[:id])
     if @pet.update(pet_params)
-      redirect_to @pet, notice: 'Le compagnon a été modifié avec succès.'
+      redirect_to pet_path(@pet), notice: 'Le compagnon a été modifié avec succès.'
     else
       render :new, status: :unprocessable_entity
     end
