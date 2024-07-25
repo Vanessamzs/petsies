@@ -6,7 +6,7 @@ export default class extends Controller {
   static targets = [ "birth_date" ]
   connect() {
     flatpickr(this.element, {
-      enableTime: true,
+      enableTime: false,
       dateFormat: "Y-m-d H:i",
       disableMobile: "true",
       "locale": French
