@@ -1,9 +1,9 @@
 <div class="container">
 
   <%= render "shared/card" %>
-
+ 
   <ul>
-    <% @upcoming_events.each do |event| %>
+    <% @upcoming_events_of_pet.each do |event| %>
       <% if Date.today == event.start %>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           Attention, n'oubliez pas votre évènement ce jour : <%= event.title %>

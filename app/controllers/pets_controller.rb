@@ -8,6 +8,7 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
     @events = @pet.events
+    @upcoming_events_of_pet = @pet.events.where("start <= ?", Date.today + 3).where("start >= ?", Date.today).order(start: :asc)
   end
 
   def new
