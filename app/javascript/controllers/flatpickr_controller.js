@@ -11,4 +11,5 @@ export default class extends Controller {
       disableMobile: "true",
       "locale": French
     });
-}};
+  }
+};

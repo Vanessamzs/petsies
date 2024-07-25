@@ -7,13 +7,11 @@ export default class extends Controller {
   static targets = [ "start", "end" ]
 
   connect() {
-
     flatpickr(this.element, {
       enableTime: true,
       dateFormat: "Y-m-d H:i",
       disableMobile: "true",
       "locale": French
-
     });
-
-}};
+  }
+};

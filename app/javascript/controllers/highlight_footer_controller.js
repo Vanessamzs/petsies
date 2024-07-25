@@ -1,10 +1,24 @@
+
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="highlight-footer"
 export default class extends Controller {
   static targets = ["profile", "search"]
+
   connect() {
     this.highlightActiveLink();
+
+
+    const offcanvasProfile = document.getElementById('offcanvasFooterProfile');
+    const offcanvasSearch = document.getElementById('offcanvasFooterSearch');
+
+    offcanvasProfile.addEventListener('hidden.bs.offcanvas', () => {
+      this.removeHighlight(this.profileTarget);
+    });
+
+    offcanvasSearch.addEventListener('hidden.bs.offcanvas', () => {
+      this.removeHighlight(this.searchTarget);
+    });
   }
 
   highlightActiveLink() {
@@ -26,5 +40,9 @@ export default class extends Controller {
 
   highlightSearchLink(){
     this.searchTarget.classList.toggle('active');
+  }
+
+  removeHighlight(target) {
+    target.classList.remove('active');
   }
 }

@@ -248,3 +248,14 @@ input[type="radio"]:checked+label {
 .pet_birth_date{
   display: flex;
 }
+
+.progress-follow{
+  position: absolute;
+  width: 90%;
+  top: 145px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 5%;
+}
