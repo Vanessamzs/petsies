@@ -7,14 +7,11 @@ export default class extends Controller {
   static targets = [ "start", "end" ]
 
   connect() {
-    console.log("Datepicker controller connected");
-
     flatpickr(this.element, {
       enableTime: true,
       dateFormat: "Y-m-d H:i",
       disableMobile: "true",
       "locale": French
-
     });
-
-}};
+  }
+};
