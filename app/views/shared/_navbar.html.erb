@@ -22,7 +22,9 @@
           <div class="offcanvas-body">
 
             <ul style="list-style:none;" class="notifications-list">
-              <% if @upcoming_events%>
+              <% if @upcoming_events.nil? %>
+                <li class="notifications-list">Aucun évènement à venir pour <%= @pet.name %></li>
+              <% else %>
                 <% @upcoming_events.each do |event| %>
                   <% if Date.today == event.start || Date.today > (event.start - 4) || Date.today < (event.start + 1) %>
                     <li>
@@ -30,8 +32,6 @@
                     </li>
                   <% end %>
                 <% end %>
-              <% else %>
-                <li class="notifications-list">Aucun évènement à venir pour <%= @pet.name %></li>
               <% end %>
             </ul>
 
