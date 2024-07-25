@@ -55,3 +55,26 @@
   justify-content: center;
   padding-bottom: 65px;
 }
+
+.titre-et-bouton {
+  display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn-close {
+  position: fixed;
+  right: 20px;
+}
+
+.offcanvas-header {
+  flex-direction: column;
+}
+
+.grid-container-search {
+  margin-bottom: 35px;
+}
+
+.offcanvas-title {
+  margin-bottom: 5px;
+}
